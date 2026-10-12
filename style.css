@@ -295,4 +295,6 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 /* 0.08 顶栏多了「员工」：按钮文字不换行，屏幕窄时缩小间距 */
 .hb{white-space:nowrap}
 @media (max-width:900px){.hb{padding:8px 10px;font-size:13px;min-width:0}.hb .hi{margin-right:3px}}
-@media (max-width:760px){.hb{padding:7px 8px;font-size:12px}}
+/* 小屏手机（横屏 667 宽左右）：顶栏一行放不下 → 缩小条和图标，保证右上角菜单按钮露得出来 */
+@media (max-width:800px){.hb{padding:6px 7px;font-size:12px}.hb:not(.menu) .hi{width:13px;height:13px;margin-right:2px}.chip{padding:3px 9px 3px 6px}.chip .bar{width:26px}#hud .hl,#hud .hr{gap:4px}}
+@media (max-width:700px){.chip .bar{display:none}.hb:not(.menu) .hi{display:none}.chip .k{font-size:11px}}
