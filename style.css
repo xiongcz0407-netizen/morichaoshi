@@ -191,7 +191,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
 #creator.hidden{display:none}
 .cbox{pointer-events:auto;width:min(430px,58vw);background:rgba(30,26,22,.94);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
 .chead{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--line)}
-.chead b{font-size:16px;color:var(--acc)}#cAvatar{width:56px;height:64px;border-radius:10px}
+.chead b{font-size:16px;color:var(--acc)}#cAvatar{width:64px;height:74px;border-radius:10px}
 .cbody{flex:1;overflow-y:auto;padding:6px 12px;touch-action:pan-y;-webkit-overflow-scrolling:touch}
 .crow{display:flex;align-items:center;gap:8px;padding:4px 0}.crow .cl{width:34px;flex:none;font-size:12px;color:var(--ink2)}
 .cs{display:flex;flex-wrap:wrap;gap:5px}
@@ -200,3 +200,27 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
 .cthumb{padding:0;border-radius:8px;border:2px solid transparent;background:#3a332b;line-height:0}.cthumb.on{border-color:var(--acc)}.cthumb canvas{width:38px;height:38px}
 .cfoot{display:flex;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}.cfoot .btn{flex:1;margin:0}
 .cbox .note{margin:0 12px 8px;font-size:11px}
+
+#cName{flex:1;min-width:0;max-width:220px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#1e1a16;color:#fff3d6;font-size:14px;outline:none}#cName:focus{border-color:var(--acc)}
+.cell .n small{font-size:10px;color:var(--ink2);font-weight:400}.cell .n.full{color:#ff7a5c}
+.lab small.warn{color:#ff9a80}
+details.help{border:1px solid var(--line);border-radius:10px;margin:6px 0;background:rgba(255,255,255,.03)}
+details.help summary{padding:9px 12px;cursor:pointer;font-weight:700;color:var(--acc);list-style:none}
+details.help summary::-webkit-details-marker{display:none}
+details.help summary::after{content:'＋';float:right;color:var(--ink2)}details.help[open] summary::after{content:'－'}
+details.help p{margin:0;padding:0 12px 10px;white-space:pre-line;font-size:13px;line-height:1.65;color:var(--ink)}
+h4.sub{margin:14px 0 4px;font-size:14px;color:var(--acc)}
+/* ---------- 布置 ---------- */
+.fab.lay{background:#e8c06a}
+#layUI{position:absolute;inset:0;z-index:20;pointer-events:none}
+#layUI.hidden{display:none}
+#layUI .ltop{position:absolute;left:calc(10px + var(--sl));top:calc(8px + var(--st));right:calc(10px + var(--sr));display:flex;align-items:flex-start;gap:10px}
+#layUI .ltitle{background:rgba(30,26,22,.9);border:1px solid var(--line);border-radius:12px;padding:8px 12px;pointer-events:auto;max-width:60%}
+#layUI .ltitle b{color:var(--acc);font-size:15px}#layUI .ltitle .note{margin:2px 0 0;font-size:11px;line-height:1.45}
+#layUI .lmsg{margin-left:auto;background:rgba(30,26,22,.9);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px;max-width:36%}
+#layUI .lmsg.bad{border-color:#e5604f;color:#ffd0c4}#layUI .lmsg.good{border-color:#7cc77a;color:#d8f5d6}
+#layUI .laybar{position:absolute;right:calc(10px + var(--sr));bottom:calc(10px + var(--sb));display:flex;gap:8px;pointer-events:auto;background:rgba(30,26,22,.9);border:1px solid var(--line);border-radius:14px;padding:8px}
+#layUI .laybar .btn{margin:0;min-width:74px}
+#layUI .legend{position:absolute;left:calc(10px + var(--sl));bottom:calc(70px + var(--sb));font-size:11px;background:rgba(30,26,22,.85);border-radius:10px;padding:6px 9px;line-height:1.6;color:var(--ink2)}
+#layUI .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.shrow .fxn{font-weight:700;color:var(--acc);font-size:13px}.shrow .fxn small{font-weight:400;color:var(--ink2)}.shrow .cur .btn.sm{margin-top:4px;font-size:11px;padding:4px 8px}
