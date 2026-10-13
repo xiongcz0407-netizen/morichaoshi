@@ -112,6 +112,7 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-left:auto}
 .gchip{padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.08);font-size:12px;border:1px solid transparent}
 .gchip.on{background:rgba(242,179,61,.22);border-color:var(--acc);color:var(--acc)}
+.gchip:disabled{opacity:.45}.gchip small{font-size:10px}
 .mrow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;background:rgba(255,255,255,.04)}
 .mrow .btns{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .log h5{margin:10px 0 4px;font-size:13px;color:var(--acc)}.log ul{margin:0;padding-left:18px;font-size:12px;color:var(--ink2)}
@@ -287,10 +288,62 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .srow{display:flex;align-items:center;gap:10px;padding:8px;margin-bottom:8px;flex-wrap:wrap}
 .srow .sn{min-width:120px}.srow .sn b{font-size:15px;margin-right:6px}.srow .sn small{color:var(--ink2)}
 .srow .chips{margin-left:auto}
-.sone h3{margin:0 0 10px;font-size:20px}.sone h3 small{font-size:13px;color:var(--ink2);font-weight:400}
-.sone .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-.sone .stats div{background:rgba(255,255,255,.06);border-radius:10px;padding:8px;font-size:12px;color:var(--ink2)}
-.sone .stats b{display:block;font-size:17px;color:var(--ink)}.sone .stats .up{color:#7cd67a;font-size:12px}
+.sone h3{margin:0 0 6px;font-size:20px}.sone h3 small{font-size:13px;color:var(--ink2);font-weight:400}
+.sone .stats,.reveal .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.sone .stats div,.reveal .stats div{background:rgba(255,255,255,.06);border-radius:10px;padding:8px;font-size:12px;color:var(--ink2)}
+.sone .stats b,.reveal .stats b{display:block;font-size:17px;color:var(--ink)}.sone .stats .up{color:#7cd67a;font-size:12px}
+.srow .sav{flex:none}
+
+/* 0.11 员工头像框：品质 = 框的颜色（普通白、精英蓝、史诗紫、传说橙） */
+.q-n{--qc:#e4e8ee;--qb:linear-gradient(145deg,#ffffff,#aab3be 42%,#eef1f5 58%,#737d89);--qbg:radial-gradient(circle at 50% 32%,#6f7987,#2a3038 78%);--qr:linear-gradient(90deg,#5f6874,#9aa4b0,#5f6874);--qg:rgba(0,0,0,0)}
+.q-e{--qc:#4aa8ff;--qb:linear-gradient(145deg,#cfe9ff,#2f80e2 42%,#94ccff 58%,#154a96);--qbg:radial-gradient(circle at 50% 32%,#3b7dcc,#102440 78%);--qr:linear-gradient(90deg,#1a58ad,#3f95f0,#1a58ad);--qg:rgba(74,168,255,.45)}
+.q-p{--qc:#c27bff;--qb:linear-gradient(145deg,#f3dcff,#9a3ff0 42%,#ddadff 58%,#561898);--qbg:radial-gradient(circle at 50% 32%,#7c42c4,#24103b 78%);--qr:linear-gradient(90deg,#6522b0,#a855f0,#6522b0);--qg:rgba(194,123,255,.6)}
+.q-l{--qc:#ff9a2e;--qb:linear-gradient(145deg,#fff3c0,#ff9a2e 38%,#ffd66e 56%,#bb4f08);--qbg:radial-gradient(circle at 50% 32%,#d77a2c,#3a1805 78%);--qr:linear-gradient(90deg,#b84d08,#ff9a2e,#b84d08);--qg:rgba(255,154,46,.75)}
+.q-x{--qc:#8a9099;--qb:linear-gradient(145deg,#9aa0a8,#4d535b 50%,#7d838b);--qbg:radial-gradient(circle at 50% 35%,#3c424a,#1b1f24 80%);--qr:#444;--qg:rgba(0,0,0,0)}
+.sav{position:relative;width:76px;height:76px;padding:3px;border-radius:12px;background:var(--qb);box-sizing:border-box;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 0 0 2px #120f0b,0 4px 10px rgba(0,0,0,.55),0 0 12px var(--qg)}
+.sav .in{position:relative;width:100%;height:100%;border-radius:9px;overflow:hidden;background:var(--qbg);box-shadow:inset 0 0 0 1px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.55)}
+.sav .in::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,0) 42%);pointer-events:none}
+.sav .pt{position:absolute;inset:0;background-size:118%;background-position:50% 22%;background-repeat:no-repeat;
+  background-image:radial-gradient(circle at 50% 40%,rgba(255,255,255,.35) 0 21%,transparent 22%),radial-gradient(ellipse at 50% 108%,rgba(255,255,255,.3) 0 46%,transparent 47%)}
+.sav .qm{position:absolute;inset:0;display:grid;place-items:center;font-size:40px;font-weight:900;color:#9aa1aa;text-shadow:0 2px 0 #000}
+.sav s{position:absolute;width:9px;height:9px;background:var(--qb);border:1px solid #120f0b;transform:rotate(45deg);text-decoration:none}
+.sav .c1{left:-4px;top:-4px}.sav .c2{right:-4px;bottom:-4px}
+.sav.q-n s{display:none}
+.sav .lvb{position:absolute;left:5px;top:5px;z-index:3;font-style:normal;font-size:10px;font-weight:800;line-height:1;padding:2px 4px;border-radius:5px;background:rgba(0,0,0,.7);color:#fff}
+.sav .qn{position:absolute;left:3px;right:3px;bottom:3px;z-index:3;font-style:normal;font-size:10px;font-weight:800;line-height:15px;text-align:center;letter-spacing:2px;color:#fff;
+  background:var(--qr);border-radius:0 0 9px 9px;text-shadow:0 1px 0 rgba(0,0,0,.6);box-shadow:0 -1px 0 rgba(255,255,255,.25)}
+.sav.big{width:112px;height:112px;padding:4px;border-radius:15px}.sav.big .in{border-radius:11px}.sav.big .qn{left:4px;right:4px;bottom:4px;font-size:12px;line-height:19px;border-radius:0 0 11px 11px}
+.sav.big .lvb{font-size:12px;left:7px;top:7px}.sav.big s{width:12px;height:12px}.sav.big .c1{left:-5px;top:-5px}.sav.big .c2{right:-5px;bottom:-5px}.sav.big .qm{font-size:56px}
+.sav.sm{width:54px;height:54px;padding:2px;border-radius:9px}.sav.sm .in{border-radius:7px}.sav.sm .qn{left:2px;right:2px;bottom:2px;font-size:9px;line-height:12px;letter-spacing:0}.sav.sm .lvb{display:none}
+/* 史诗、传说：框上一道扫光；传说的光晕会呼吸 */
+.sav.q-p .in::before,.sav.q-l .in::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.42) 50%,transparent 65%);transform:translateX(-130%);animation:svShine 4.5s ease-in-out infinite}
+.sav.q-l .in::before{animation-duration:3s}
+.sav.q-l{animation:svGlow 1.8s ease-in-out infinite alternate}
+@keyframes svShine{0%,62%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+@keyframes svGlow{from{box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 0 0 2px #120f0b,0 4px 10px rgba(0,0,0,.55),0 0 8px rgba(255,154,46,.45)}to{box-shadow:inset 0 0 0 1px rgba(255,255,255,.45),0 0 0 2px #120f0b,0 4px 10px rgba(0,0,0,.55),0 0 20px rgba(255,154,46,.95)}}
+/* 员工页：头像卡片 */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin:8px 0 10px}
+.scard{display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px 9px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:inherit;font:inherit;cursor:pointer}
+.scard:active{transform:translateY(1px)}.scard:hover{border-color:var(--qc)}
+.scard b{font-size:14px;margin-top:3px}.scard small{font-size:11px;color:var(--ink2)}
+.shead{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.qtag{display:inline-block;padding:2px 12px;border-radius:10px;background:var(--qr);color:#fff;font-size:12px;font-weight:800;letter-spacing:2px;text-shadow:0 1px 0 rgba(0,0,0,.5);margin-bottom:4px}
+/* 新员工揭晓卡：先是问号框，翻过来亮出品质框 */
+.reveal{text-align:center}
+.reveal .stage{position:relative;width:190px;height:150px;margin:-6px auto 0;perspective:700px;display:grid;place-items:center}
+.reveal .flip{position:relative;width:112px;height:112px;transform-style:preserve-3d;animation:rvFlip 1s cubic-bezier(.3,.7,.3,1.15) .5s both}
+.reveal .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.reveal .face.back{transform:rotateY(180deg)}
+.reveal .rays{position:absolute;inset:-6px;border-radius:50%;background:repeating-conic-gradient(var(--qc) 0 7deg,transparent 7deg 22deg);
+  -webkit-mask-image:radial-gradient(circle,#000 18%,transparent 68%);mask-image:radial-gradient(circle,#000 18%,transparent 68%);opacity:0;animation:rvRays .6s ease 1.25s forwards,rvSpin 14s linear infinite}
+.reveal.q-n .rays{--ro:.15}.reveal.q-e .rays{--ro:.35}.reveal.q-p .rays{--ro:.55}.reveal.q-l .rays{--ro:.8}
+.reveal .after{opacity:0;animation:rvIn .4s ease 1.35s forwards}
+.reveal h3{margin:0 0 6px;font-size:21px}.reveal .stats div{padding:5px 8px}
+@keyframes rvFlip{0%{transform:rotateY(180deg) scale(.9)}60%{transform:rotateY(-12deg) scale(1.1)}100%{transform:rotateY(0) scale(1)}}
+@keyframes rvRays{to{opacity:var(--ro,.4)}}
+@keyframes rvSpin{to{transform:rotate(360deg)}}
+@keyframes rvIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .warn{color:#e5604f}
 /* 0.08 顶栏多了「员工」：按钮文字不换行，屏幕窄时缩小间距 */
 .hb{white-space:nowrap}
