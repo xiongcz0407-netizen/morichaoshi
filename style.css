@@ -478,3 +478,7 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #msgDrop .mbody{flex:1 1 auto;min-height:0;overscroll-behavior:contain}
 #msgDrop .mrowx{min-width:0}
 #msgDrop .mrowx .mx{min-width:0;word-break:break-all}
+#msgDrop .mbtns{display:flex;gap:6px}
+#msgDrop .mrowx{cursor:pointer}
+#msgDrop .mrowx.new .mx{font-weight:600}
+#msgDrop .mrowx:not(.new){opacity:.7}
