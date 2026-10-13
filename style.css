@@ -351,3 +351,20 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 /* 小屏手机（横屏 667 宽左右）：顶栏一行放不下 → 缩小条和图标，保证右上角菜单按钮露得出来 */
 @media (max-width:800px){.hb{padding:6px 7px;font-size:12px}.hb:not(.menu) .hi{width:13px;height:13px;margin-right:2px}.chip{padding:3px 9px 3px 6px}.chip .bar{width:26px}#hud .hl,#hud .hr{gap:4px}}
 @media (max-width:700px){.chip .bar{display:none}.hb:not(.menu) .hi{display:none}.chip .k{font-size:11px}}
+
+/* 0.12 顶栏：按钮都收进右上角「☰」，点开往下展开一块图标格子（以后加功能只往格子里加） */
+#hud .hr{position:relative}
+#hMore{min-width:0;padding:7px 12px}
+#hMore.open{background:rgba(242,179,61,.3);border-color:var(--acc)}
+#hDrop{position:absolute;right:0;top:calc(100% + 6px);display:grid;grid-template-columns:repeat(3,64px);gap:6px;padding:8px;border-radius:14px;
+  background:rgba(30,26,22,.94);border:1px solid var(--line);box-shadow:0 8px 22px rgba(0,0,0,.5);z-index:30;transform-origin:top right;animation:hdIn .14s ease-out}
+#hDrop.hidden{display:none}
+@keyframes hdIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+.dt{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:58px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid transparent;color:var(--ink);font:inherit;font-size:12px;cursor:pointer;padding:0}
+.dt:active{background:rgba(242,179,61,.3)}
+.dt .hi{width:22px;height:22px;margin:0}
+.dt.td{background:rgba(140,40,32,.55)}
+.hb .dot,.dt .dot{position:absolute;right:4px;top:4px;width:9px;height:9px;border-radius:50%;background:#ff4b3a;box-shadow:0 0 0 2px rgba(30,26,22,.9);display:none}
+.hb .dot{right:-2px;top:-2px}
+.dot.on,.hb em.dot.on{display:block}
+@media (max-height:340px){.dt{height:50px}#hDrop{grid-template-columns:repeat(3,58px)}}
