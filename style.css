@@ -6,7 +6,7 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif;
   -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:none;overscroll-behavior:none}
-#app{position:fixed;inset:0;overflow:hidden}
+#app{position:fixed;left:0;top:0;right:0;height:var(--appH,100%);overflow:hidden}   /* 高度由 main.js 的 resize() 算好写进 --appH（iOS 主屏幕打开时 100% 会短一截，底下露黑边） */
 #cv{position:absolute;inset:0;width:100%;height:100%;display:block}
 .hidden{display:none!important}
 button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-action:manipulation}
@@ -440,6 +440,18 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #fishUI .fbar .end.hot{background:rgba(229,96,79,.95)}
 #fishUI .fprog{height:8px;border-radius:4px;background:#3a3f44;margin-top:6px;overflow:hidden}
 #fishUI .fprog i{display:block;height:100%;background:#7cc77a;width:30%}
+/* 0.20 竖着的拉力条（学星露谷）：没有外框，放在主角右边 */
+#fishUI.pull{left:calc(50% + 70px);top:50%;bottom:auto;transform:translateY(-50%);width:auto;background:none;box-shadow:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+#fishUI.pull .vwrap{display:flex;gap:6px;align-items:stretch;height:clamp(150px,52vh,300px)}
+#fishUI.pull .fbar{width:34px;height:auto;margin:0;border:3px solid #6b4a2a;border-radius:10px;background:#2f4a58;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+#fishUI.pull .fbar .gz{left:0;right:0;top:auto;bottom:0;width:auto}
+#fishUI.pull .fbar .pt{left:-3px;right:-3px;top:auto;width:auto;height:6px;margin:0 0 -3px;bottom:0}
+#fishUI.pull .fbar .end{left:0;right:0;top:0;bottom:auto;width:auto;height:6%}
+#fishUI.pull .fprog{width:10px;height:auto;margin:0;border:2px solid #6b4a2a;border-radius:6px;display:flex;align-items:flex-end;box-shadow:0 4px 14px rgba(0,0,0,.45)}
+#fishUI.pull .fprog i{width:100%;height:30%}
+#fishUI.pull .vinfo{font-size:12px;white-space:nowrap;text-shadow:0 1px 3px #000,0 0 6px rgba(0,0,0,.8)}
+#fishUI.pull .vtip{font-size:11px;opacity:.85;text-align:center;line-height:1.35;text-shadow:0 1px 3px #000}
+#fishUI.pull #fishHold{min-width:96px;padding:12px 14px}
 #fishUI #fishHold{min-width:110px;padding:14px 18px;font-size:17px;touch-action:none;user-select:none;-webkit-user-select:none}
 .bslot.pick{cursor:pointer}
 .bslot.on{outline:3px solid #e8c06a}
@@ -489,3 +501,39 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .fab.nadefab span{position:relative}
 .fab.nadefab.cool{background:#8a6a4a}
 .ft.hit{color:#fff;font-size:13px}
+
+/* 0.20 角色面板 */
+.hero{display:flex;gap:14px;align-items:flex-start}
+.hero .hview{flex:0 0 220px;text-align:center}
+.hero #heroView{width:220px;height:260px;border-radius:14px;background:radial-gradient(circle at 50% 40%,rgba(255,220,160,.18),rgba(0,0,0,.25));overflow:hidden}
+.hero .heroCv{width:220px;height:260px;display:block}
+.hero .hcards{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.hcard{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.hcard h5{margin:0 0 4px;font-size:15px;display:flex;align-items:center;gap:8px}
+.hcard h5 small{color:var(--ink2);font-weight:400}
+.hcard .skin{font-size:11px;border-radius:6px;padding:1px 6px;color:#fff;background:#3a3d40}
+.hcard .skin.s-camo{background:#56623a}.hcard .skin.s-gold{background:#c8941e;color:#2a2010}
+.hcard .hrow{display:flex;gap:8px;align-items:baseline;font-size:13px}
+.hcard .hrow span{color:var(--ink2);min-width:36px}
+.hcard .hrow em{color:#7fd67a;font-style:normal}
+.hcard .cost{display:flex;gap:10px;font-size:12px;margin:6px 0 4px}
+.hcard .cost .ok{color:#7fd67a}.hcard .cost .lack{color:var(--bad)}
+.hcard .btn{padding:6px 14px;font-size:13px}
+@media (max-height:420px){.hero .hview{flex-basis:180px}.hero #heroView,.hero .heroCv{width:180px;height:212px}}
+/* 0.20 确认框（商城买东西） */
+#askBox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
+#askBox.hidden{display:none}
+#askBox .abox{min-width:260px;max-width:86vw;background:#2b2420;border:12px solid transparent;border-image:url(img/ui/panel.png) 16 / 12px stretch;background-clip:padding-box;padding:14px 18px;color:var(--ink);text-align:center}
+#askBox .abox p{margin:0 0 14px;font-size:16px;line-height:1.5}
+#askBox .abox b{color:#ffd65a}
+#askBox .btns{display:flex;gap:12px;justify-content:center}
+/* 0.20 布置：放大缩小竖条（左边中间）：上「＋」下「－」，中间一条轨道，圆钮跟着缩放走，手指上下拖 */
+#layUI .lzoom{position:absolute;left:calc(10px + var(--sl));top:56%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:auto;
+  background:rgba(30,26,22,.85);border:1px solid var(--line);border-radius:24px;padding:6px 6px}
+#layUI .lzoom .zl{width:34px;height:30px;border:0;background:none;color:#f2d27a;font-size:22px;font-weight:700;line-height:1;padding:0;cursor:pointer}
+#layUI .ztrack{position:relative;width:34px;height:clamp(70px,26vh,170px);touch-action:none;cursor:ns-resize}
+#layUI .ztrack::before{content:'';position:absolute;left:50%;top:8px;bottom:8px;width:6px;margin-left:-3px;border-radius:3px;background:rgba(255,255,255,.18)}
+#layUI .ztrack .zfill{position:absolute;left:50%;bottom:8px;width:6px;margin-left:-3px;border-radius:3px;background:#f2b33d;height:calc((100% - 16px) * var(--z,0))}
+#layUI .ztrack .zknob{position:absolute;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#f7d77a;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);
+  bottom:calc(8px + (100% - 16px) * var(--z,0) - 13px)}
+#layUI.dragging .lzoom{opacity:.3}
