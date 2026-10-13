@@ -447,3 +447,34 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .dropbar .icon{width:32px;height:32px}
 .dropbar .dn{min-width:28px;text-align:center;font-size:16px}
 .dropbar.warn{background:rgba(229,96,79,.22)}
+
+/* 0.14 消息框：菜单左边的按钮，右上角红色数字 = 没看过的消息 */
+.hb em.cnt{min-width:16px;height:16px;border-radius:8px;background:var(--bad);color:#fff;font-size:10px;line-height:16px;text-align:center;padding:0 3px;right:-5px;top:-5px;display:none}
+.hb em.cnt.on{display:block}
+.mlist{display:flex;flex-direction:column;gap:6px}
+.mrowx{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.05)}
+.mrowx.new{background:rgba(242,179,61,.14)}
+.mrowx .mt{flex:0 0 auto;color:var(--ink2);font-size:12px;min-width:54px}
+.mrowx .mk{flex:0 0 auto;font-size:11px;border-radius:6px;padding:1px 6px;background:#5a5f66;color:#fff}
+.mrowx .mk.good{background:#3f7a3a}.mrowx .mk.bad{background:#a8432f}.mrowx .mk.info{background:#2f5a7a}
+.mrowx .mx{flex:1;font-size:14px;line-height:1.4}
+
+/* 0.14 消息改成下拉（不弹框）：从消息按钮往下展开；「删除已读」 */
+#msgDrop{position:absolute;right:58px;top:calc(100% + 6px);width:min(360px,calc(100vw - 120px));max-height:min(62vh,320px);display:flex;flex-direction:column;border-radius:14px;
+  background:rgba(30,26,22,.95);border:1px solid var(--line);box-shadow:0 10px 26px rgba(0,0,0,.45);z-index:9;overflow:hidden}
+#msgDrop.hidden{display:none}
+#msgDrop .mhead{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line)}
+#msgDrop .mbody{overflow-y:auto;padding:6px 8px 8px;-webkit-overflow-scrolling:touch}
+#msgDrop .mrowx{padding:6px 8px}
+#msgDrop .mrowx .mx{font-size:13px}
+#msgDrop .mrowx .mt{min-width:46px;font-size:11px}
+
+/* 0.14：长提示不再溢出屏幕（自动换行，最宽屏幕的 86%） */
+.toast{white-space:normal;max-width:min(86vw,640px);border-radius:14px;text-align:center;line-height:1.45}
+#big{width:max-content;max-width:86vw}
+#big .bx small{white-space:normal;line-height:1.4}
+@media (max-width:700px){#big .bx b{font-size:34px}}
+#msgDrop{max-height:calc(100vh - 76px - var(--st) - var(--sb))}
+#msgDrop .mbody{flex:1 1 auto;min-height:0;overscroll-behavior:contain}
+#msgDrop .mrowx{min-width:0}
+#msgDrop .mrowx .mx{min-width:0;word-break:break-all}

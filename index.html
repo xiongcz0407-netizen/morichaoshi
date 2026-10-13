@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#2b2620">
 <title>末世超市</title>
 <link rel="apple-touch-icon" href="img/icon.png">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 <div id="app">
@@ -22,14 +22,16 @@
       <canvas id="hAvatar" class="avatar" width="72" height="72" data-open="menu"></canvas>
       <div class="chip coin"><i class="ico-coin"></i><b id="hCoins">0</b></div>
       <div class="chip"><span class="k">口碑</span><b id="hRep">0</b><span class="bar"><i id="hRepBar"></i></span></div>
+      <div class="chip bagchip" data-open="bag"><span class="k">背包</span><b id="hBag">0/8</b><span class="bar"><i id="hBagBar"></i></span></div>
       <div id="hGoal" class="goal" data-open="tasks"></div>
     </div>
     <div class="hc">
-      <div class="chip bagchip" data-open="bag"><span class="k">背包</span><b id="hBag">0/8</b><span class="bar"><i id="hBagBar"></i></span></div>
       <div id="hShort" class="short"></div>
     </div>
     <div class="hr">
+      <button id="hMsg" class="hb menu" aria-label="消息"><i class="hi" style="--ic:url(img/ui/icons/information.png)"></i><em id="msgN" class="cnt"></em></button>
       <button id="hMore" class="hb menu" aria-label="菜单"><i class="hi" style="--ic:url(img/ui/icons/menuList.png)"></i><em class="dot"></em></button>
+      <div id="msgDrop" class="hidden"><div class="mhead"><b>消息</b><button class="btn sm ghost" data-mdel>删除已读</button></div><div class="mbody"></div></div>
       <div id="hDrop" class="hidden">
         <button class="dt" data-open="stock"><i class="hi" style="--ic:url(img/ui/icons/shoppingBasket.png)"></i>仓库<em class="dot" data-dot="stock"></em></button>
         <button class="dt" data-open="build"><i class="hi" style="--ic:url(img/ui/icons/wrench.png)"></i>建造<em class="dot" data-dot="build"></em></button>
@@ -46,7 +48,7 @@
   <button id="scavBtn" class="fab scavfab hidden">去拾荒区</button>
   <button id="boatBtn" class="fab boatfab hidden">坐船去钓鱼</button>
   <button id="fishBtn" class="fab fishfab hidden">钓鱼</button>
-  <button id="merchBtn" class="fab merchfab hidden">商人</button>
+  <button id="merchBtn" class="fab merchfab hidden">进商店</button>
   <div id="fishUI" class="hidden"></div>
   <div id="tdHud" class="hidden"></div>
   <div id="layUI" class="hidden"></div>
@@ -60,6 +62,6 @@
   <div id="scavLoad" class="hidden"><div class="sw"><h2 id="scavTxt">正在开往拾荒区…</h2><div class="sbar"><i id="scavBarI"></i></div><p id="scavTip"></p></div></div>
   <div id="rotate"><div><b>请把手机横过来</b><small>末世超市是横屏游戏</small></div></div>
 </div>
-<script src="game.js?v=14"></script>
+<script src="game.js?v=15"></script>
 </body>
 </html>
