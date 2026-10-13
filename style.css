@@ -418,3 +418,32 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #layUI .lmsg{margin-left:0;max-width:24vw;font-size:12px;line-height:1.45}
 #layUI .lhelp{top:auto;bottom:calc(64px + var(--sb))}
 .btabs{display:flex;gap:8px;margin:0 0 10px}.btabs .gchip{font-size:14px;padding:6px 18px}
+/* 0.14 钓鱼 */
+.fab.boatfab{background:#4f8ea6;color:#fff}
+.fab.fishfab{background:#4f8ea6;color:#fff}
+.fab.merchfab{background:#e8c06a}
+#fishUI{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(12px + var(--sb));z-index:7;width:min(560px,calc(100% - 220px));background:rgba(28,32,36,.92);color:#f2ede4;border-radius:14px;padding:10px 14px;box-shadow:0 8px 24px rgba(0,0,0,.45);font-size:14px}
+#fishUI.hidden{display:none}
+#fishUI .fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+#fishUI .fh b{font-size:15px}
+#fishUI .fr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px}
+#fishUI .fr small{flex:1;opacity:.75;font-size:12px}
+#fishUI .warn{color:#ff8a6a}
+#fishUI .fwait{flex:1;opacity:.85}
+#fishUI .fbite{font-size:20px;animation:fbite .3s infinite alternate}
+@keyframes fbite{to{transform:scale(1.08)}}
+#fishUI .fbar{position:relative;height:30px;border-radius:8px;background:#2f4a58;overflow:hidden;margin-top:4px}
+#fishUI .fbar .gz{position:absolute;top:0;bottom:0;background:rgba(124,199,122,.45);border:2px solid #7cc77a;border-radius:6px;box-sizing:border-box}
+#fishUI .fbar .gz.in{background:rgba(124,199,122,.75)}
+#fishUI .fbar .pt{position:absolute;top:-2px;bottom:-2px;width:6px;margin-left:-3px;background:#fff3c4;border-radius:3px;box-shadow:0 0 6px #fff3c4}
+#fishUI .fbar .end{position:absolute;right:0;top:0;bottom:0;width:6%;background:rgba(229,96,79,.35)}
+#fishUI .fbar .end.hot{background:rgba(229,96,79,.95)}
+#fishUI .fprog{height:8px;border-radius:4px;background:#3a3f44;margin-top:6px;overflow:hidden}
+#fishUI .fprog i{display:block;height:100%;background:#7cc77a;width:30%}
+#fishUI #fishHold{min-width:110px;padding:14px 18px;font-size:17px;touch-action:none;user-select:none;-webkit-user-select:none}
+.bslot.pick{cursor:pointer}
+.bslot.on{outline:3px solid #e8c06a}
+.dropbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.08)}
+.dropbar .icon{width:32px;height:32px}
+.dropbar .dn{min-width:28px;text-align:center;font-size:16px}
+.dropbar.warn{background:rgba(229,96,79,.22)}
