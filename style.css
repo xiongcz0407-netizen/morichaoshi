@@ -482,3 +482,10 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #msgDrop .mrowx{cursor:pointer}
 #msgDrop .mrowx.new .mx{font-weight:600}
 #msgDrop .mrowx:not(.new){opacity:.7}
+
+/* 0.19 尸潮手雷按钮：冷却时转一圈灰色遮罩 + 剩余秒数 */
+.fab.nadefab{width:74px;height:74px;padding:0;display:flex;align-items:center;justify-content:center;background:#d9822b;color:#fff;font-size:17px;overflow:hidden}
+.fab.nadefab i{position:absolute;inset:0;border-radius:50%;background:conic-gradient(rgba(0,0,0,.55) calc(var(--cd,0) * 1turn),transparent 0);pointer-events:none}
+.fab.nadefab span{position:relative}
+.fab.nadefab.cool{background:#8a6a4a}
+.ft.hit{color:#fff;font-size:13px}
