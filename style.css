@@ -441,8 +441,8 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #fishUI .fprog{height:8px;border-radius:4px;background:#3a3f44;margin-top:6px;overflow:hidden}
 #fishUI .fprog i{display:block;height:100%;background:#7cc77a;width:30%}
 /* 0.20 竖着的拉力条（学星露谷）：没有外框，放在主角右边 */
-#fishUI.pull{left:calc(50% + 70px);top:50%;bottom:auto;transform:translateY(-50%);width:auto;background:none;box-shadow:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px}
-#fishUI.pull .vwrap{display:flex;gap:6px;align-items:stretch;height:clamp(150px,52vh,300px)}
+#fishUI.pull{left:auto;right:calc(28px + var(--sr));top:calc(50% - 6px);bottom:auto;transform:translateY(-50%);width:auto;background:none;box-shadow:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+#fishUI.pull .vwrap{display:flex;gap:6px;align-items:stretch;height:clamp(120px,40vh,260px)}
 #fishUI.pull .fbar{width:34px;height:auto;margin:0;border:3px solid #6b4a2a;border-radius:10px;background:#2f4a58;box-shadow:0 4px 14px rgba(0,0,0,.45)}
 #fishUI.pull .fbar .gz{left:0;right:0;top:auto;bottom:0;width:auto}
 #fishUI.pull .fbar .pt{left:-3px;right:-3px;top:auto;width:auto;height:6px;margin:0 0 -3px;bottom:0}
@@ -537,3 +537,60 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #layUI .ztrack .zknob{position:absolute;left:50%;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#f7d77a;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);
   bottom:calc(8px + (100% - 16px) * var(--z,0) - 13px)}
 #layUI.dragging .lzoom{opacity:.3}
+
+/* ================= 0.21 星露谷风 =================
+   面板：暖色木框 + 米黄纸面 + 深棕字（img/ui/sv_panel.png，像素图 2 倍放大）；卡片是浅一档的纸面小框；
+   顶部状态栏：木牌底、奶白字；背包：方格子。只改样子，不改布局和玩法。 */
+.pbox,#askBox .abox{--ink:#4a2511;--ink2:#6b3a1c;--dim:#8f6a45;--line:rgba(91,43,23,.22);--good:#3d8a2a;--bad:#c23b22;--acc:#c9601c;--gem:#8a3fc0;
+  color:var(--ink);border:16px solid transparent!important;border-image:url(img/ui/sv_panel.png) 16 fill / 16px stretch!important;background:none!important;image-rendering:pixelated;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.pbox header{padding:0 4px 8px}
+.pbox header::after,.pbox .sec h4::after{background:none;height:3px;bottom:0;border-top:3px solid #d9a35c;opacity:1}
+.pbox h3{font-size:17px;color:#5b2b17;letter-spacing:1px}
+.pbox .px{background:#e0a35a;color:#4a2511;border:2px solid #9a5a2a;border-radius:6px;font-weight:600}
+.pbox .cell,.pbox .bcard,.pbox .shrow,.pbox .tdrow,.pbox .tspot,.pbox .trow,.pbox details.help,.pbox .mrow{border:8px solid transparent!important;border-image:url(img/ui/sv_card.png) 8 fill / 8px stretch!important;background:none!important}
+.pbox .btn{background:#e8a33a;color:#4a2511;border:2px solid #9a4f1c;border-radius:6px;box-shadow:inset 0 -3px 0 rgba(120,50,10,.35)}
+.pbox .btn:disabled{background:#d8c3a0;color:#9a8566;border-color:#b79b74;box-shadow:none}
+.pbox .btn.ghost{background:#f3d79f;color:#5b2b17;border-color:#b5703a;font-weight:600;box-shadow:inset 0 -2px 0 rgba(120,50,10,.2)}
+.pbox .gchip{background:#f3d79f;color:#5b2b17;border:2px solid #c99257;border-radius:6px}
+.pbox .gchip.on{border-image:none;border:2px solid #c2341d;background:#fde7b0;color:#4a2511}
+.pbox .icon.img{background:rgba(155,90,40,.12)}
+.pbox .note,.pbox small{color:var(--dim)}
+.pbox .tag{background:#c2341d}
+/* 顶部状态栏：木牌 */
+#hud .chip,#hud .hb,.goal{border:6px solid transparent!important;border-image:url(img/ui/sv_chip.png) 6 fill / 6px stretch!important;background:none!important;border-radius:0!important;image-rendering:pixelated;
+  color:#fff3d6;text-shadow:0 1px 0 #5b2b17,1px 0 0 #5b2b17,-1px 0 0 #5b2b17,0 -1px 0 #5b2b17}
+#hud .chip{padding:1px 8px 1px 4px}#hud .hb{padding:4px 10px}
+#hud .chip .k{color:#ffe0a8}
+#hud .chip .bar{background:#5b2b17;border-radius:0;box-shadow:inset 0 0 0 1px #3a1a0c}
+#hud .hb .hi{filter:drop-shadow(0 1px 0 #5b2b17)}
+/* 背包：上面钱包、下面方格子 */
+.bwallet{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.wchip{display:flex;align-items:center;gap:4px;padding:3px 10px 3px 4px;background:#f3d79f;border:2px solid #c99257;border-radius:6px;font-size:12px;color:#5b2b17}
+.wchip .icon{width:24px;height:24px}.wchip .wn{opacity:.8}.wchip b{font-size:14px;margin-left:2px}
+.pbox .bslots{grid-template-columns:repeat(auto-fill,64px);gap:4px;justify-content:start}
+.pbox .bslot{position:relative;width:64px;height:64px;min-height:0;padding:0;border:6px solid transparent;border-image:url(img/ui/sv_slot.png) 6 fill / 6px stretch;background:none;border-radius:0;color:#4a2511}
+.pbox .bslot .icon{width:40px;height:40px;background:none}
+.pbox .bslot .bc{position:absolute;right:-2px;bottom:-4px;font-size:14px;color:#fff;text-shadow:0 1px 0 #3a1a0c,1px 0 0 #3a1a0c,-1px 0 0 #3a1a0c,0 -1px 0 #3a1a0c}
+.pbox .bslot.on{outline:none;border-image-source:url(img/ui/sv_card_on.png)}
+.pbox .dropbar{background:#f3d79f;border:2px solid #c99257;border-radius:6px}
+.pbox .dropbar.warn{background:#f6c0a0;border-color:#c2341d}
+.cell .sub span{white-space:nowrap}
+.pbox .hcard{border:8px solid transparent;border-image:url(img/ui/sv_card.png) 8 fill / 8px stretch;background:none;border-radius:0}
+.pbox .hcard .hrow em,.pbox .hcard .cost .ok{color:var(--good)}
+.pbox .hview{background:#f3d79f;border:3px solid #c99257;border-radius:6px}
+.pbox .tasks .trow.done .ck{border-color:#3d8a2a;background:#5aa83c;color:#fff}
+/* 消息下拉框也换纸面 */
+#msgDrop{--ink:#4a2511;--ink2:#6b3a1c;--dim:#8f6a45;--line:rgba(91,43,23,.22);color:var(--ink);border:12px solid transparent!important;border-image:url(img/ui/sv_panel.png) 16 fill / 12px stretch!important;background:none!important;border-radius:0!important;image-rendering:pixelated}
+#msgDrop .btn,#msgDrop .btn.ghost{background:#f3d79f;color:#5b2b17;border:2px solid #b5703a;border-radius:6px}
+#askBox .abox b{color:#c2341d}
+#askBox .abox .btn{background:#e8a33a;color:#4a2511;border:2px solid #9a4f1c;border-radius:6px;box-shadow:inset 0 -3px 0 rgba(120,50,10,.35);padding:8px 18px}
+#askBox .abox .btn.ghost{background:#f3d79f;color:#5b2b17;border-color:#b5703a;box-shadow:inset 0 -2px 0 rgba(120,50,10,.2)}
+/* 钓鱼面板（选饵、等咬钩）、布置提示框也换纸面；尸潮 HUD 保持深色（打仗时看得清） */
+#fishUI:not(.pull),#layUI .ltitle,#layUI .lmsg,#layUI .laybar,#layUI .ltray,#layUI .legend{--acc:#c9601c;--good:#3d8a2a;--bad:#c23b22;--ink:#4a2511;--ink2:#6b3a1c;--dim:#8f6a45;--line:rgba(91,43,23,.22);color:#4a2511;border:12px solid transparent!important;border-image:url(img/ui/sv_panel.png) 16 fill / 12px stretch!important;background:none!important;border-radius:0!important;box-shadow:0 6px 18px rgba(0,0,0,.35);image-rendering:pixelated}
+#fishUI:not(.pull){padding:4px 8px}
+#fishUI:not(.pull) .btn,#layUI .btn{background:#e8a33a;color:#4a2511;border:2px solid #9a4f1c;border-radius:6px;box-shadow:inset 0 -3px 0 rgba(120,50,10,.35)}
+#fishUI:not(.pull) .btn.ghost,#layUI .btn.ghost{background:#f3d79f;color:#5b2b17;border-color:#b5703a;box-shadow:inset 0 -2px 0 rgba(120,50,10,.2)}
+#fishUI:not(.pull) .btn:disabled,#layUI .btn:disabled{background:#d8c3a0;color:#9a8566;border-color:#b79b74;box-shadow:none}
+#fishUI:not(.pull) .gchip{background:#f3d79f;color:#5b2b17;border:2px solid #c99257;border-radius:6px}
+#fishUI:not(.pull) .gchip.on{border-image:none;border:2px solid #c2341d;background:#fde7b0}
+#fishUI .warn{color:#c2341d}
