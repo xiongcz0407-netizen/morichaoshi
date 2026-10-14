@@ -609,3 +609,14 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .btn .twi{width:20px;height:20px;vertical-align:-5px;margin-right:3px}
 /* 0.23 建造页每张卡片标题前放建筑图标 */
 .bcard h5.bh{display:flex;align-items:center;gap:8px}.bcard h5.bh .icon{width:40px;height:40px;flex:none}
+/* 0.24 钓鱼：没抛竿时右边也是这一列（区域名 + 饵料 + 抛竿），抛竿按钮和收线在同一个位置 */
+#fishUI.pull .vbait{display:flex;flex-direction:column;gap:6px;align-items:stretch}
+#fishUI.pull .vbait .gchip{background:#f3d79f;color:#5b2b17;border:2px solid #c99257;border-radius:6px;padding:6px 10px;font-size:13px;font-weight:600}
+#fishUI.pull .vbait .gchip.on{border-color:#c2341d;background:#fde7b0}
+#fishUI.pull .vfull{display:flex;gap:6px;align-items:center;font-size:12px;text-shadow:0 1px 3px #000}
+#fishUI.pull #fishCast,#fishUI.pull [data-f="reel"]{min-width:96px;padding:12px 14px;font-size:17px}
+#fishUI.pull .fbite{font-size:22px;text-shadow:0 2px 4px #000}
+#fishUI.pull .fwait{font-size:14px}
+/* 0.24：整列贴着屏幕下边放（不再上下居中），这样抛竿、收竿、收线三个按钮在同一个位置 */
+#fishUI.pull{top:auto;bottom:calc(52px + var(--sb));transform:none}
+#fishUI.pull [data-f="reel"]{background:#f3d79f;color:#5b2b17;border:2px solid #b5703a;border-radius:10px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.35)}
