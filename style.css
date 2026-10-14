@@ -620,3 +620,4 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 /* 0.24：整列贴着屏幕下边放（不再上下居中），这样抛竿、收竿、收线三个按钮在同一个位置 */
 #fishUI.pull{top:auto;bottom:calc(52px + var(--sb));transform:none}
 #fishUI.pull [data-f="reel"]{background:#f3d79f;color:#5b2b17;border:2px solid #b5703a;border-radius:10px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.35)}
+.pbox .cell.pick{cursor:pointer}.pbox .cell.on{border-image:url(img/ui/sv_card_on.png) 8 fill / 8px stretch!important}
