@@ -632,3 +632,24 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .lab .box.mys{border-color:#c9a2ff;color:#f3e6ff}
 .lab .box.mys .bang{color:#ffd23a;font-size:16px;animation:fbite .5s infinite alternate}
 .mysq{font-style:italic;opacity:.9}
+
+/* 0.40 好友和聊天 */
+#hFriend.off{opacity:.45}
+.fdot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#9a9086;margin-right:6px;vertical-align:1px}
+.fdot.on{background:#3fbf4a;box-shadow:0 0 4px #3fbf4a}
+.frow{display:flex;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid var(--line);cursor:pointer}
+.frow .fn{flex:1;display:flex;flex-direction:column}
+.frow .fn small{opacity:.75;font-size:12px}
+.cntc{display:inline-block;min-width:18px;height:18px;line-height:18px;border-radius:9px;background:var(--bad);color:#fff;font-style:normal;font-size:11px;text-align:center;padding:0 4px;margin-left:4px}
+.chead{display:flex;align-items:center;gap:10px;margin-bottom:6px}.chead b{flex:1;text-align:center}
+.clog{height:min(46vh,320px);overflow-y:auto;padding:6px;background:rgba(0,0,0,.06);border-radius:8px;display:flex;flex-direction:column;gap:6px}
+.cmsg{display:flex;flex-direction:column;align-items:flex-start;max-width:78%}
+.cmsg.me{align-self:flex-end;align-items:flex-end}
+.cmsg .cb{background:#fff6dc;border:1px solid var(--line);border-radius:10px;padding:5px 10px;word-break:break-all}
+.cmsg.me .cb{background:#bfe6a8}
+.cmsg small{font-size:10px;opacity:.6;margin-top:1px}
+.cin{display:flex;gap:6px;margin-top:8px}
+.cin input{flex:1;min-width:0;font:inherit;font-size:16px;padding:6px 10px;border:2px solid #c99257;border-radius:8px;background:#fffaf0;color:#3b2412;user-select:text;-webkit-user-select:text}
+.ccard{display:flex;gap:14px;align-items:center;padding:10px 4px}
+.ccard .cav{width:64px;height:64px;border-radius:50%;background:#e8a33a;color:#4a2511;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3px solid #9a4f1c}
+.ccard .cn{font-size:18px}
