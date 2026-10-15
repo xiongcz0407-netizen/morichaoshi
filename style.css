@@ -621,3 +621,5 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 #fishUI.pull{top:auto;bottom:calc(52px + var(--sb));transform:none}
 #fishUI.pull [data-f="reel"]{background:#f3d79f;color:#5b2b17;border:2px solid #b5703a;border-radius:10px;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.35)}
 .pbox .cell.pick{cursor:pointer}.pbox .cell.on{border-image:url(img/ui/sv_card_on.png) 8 fill / 8px stretch!important}
+#fishUI.pull .vreel{display:flex;justify-content:center}
+#fishUI.pull .vgap{height:64px}   /* 0.31：等咬钩时下面空着（抛竿按钮的位置），收竿按钮在上面，防连点误收 */
