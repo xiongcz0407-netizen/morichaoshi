@@ -671,3 +671,6 @@ body.kbon .cin{margin-top:4px}
 .wsrow .wn{display:flex;align-items:center;gap:8px}.wsrow .wn b{display:flex;align-items:center;gap:6px}.wsrow .wn .icon{width:28px;height:28px}
 .wsrow .ws-st{font-size:13px}.wsrow .pg{display:inline-block;width:90px;height:8px;margin-left:8px;background:rgba(0,0,0,.12);border-radius:4px;overflow:hidden;vertical-align:middle}.wsrow .pg i{display:block;height:100%;background:var(--good)}
 .wsrow .btns{display:flex;flex-wrap:wrap;gap:6px}.wsrow .btn small{font-weight:400;margin-left:2px}
+/* V1.11 员工 M16 分三条升 */
+.gunrow .gup{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;padding:4px 0;border-bottom:1px dashed rgba(90,60,30,.25)}
+.gunrow .gup>span{min-width:64px}.gunrow .gup small{opacity:.7}.gunrow .gup em{color:#2f7d32;font-style:normal}.gunrow .gup .btn,.gunrow .gup .note{margin-left:auto}
