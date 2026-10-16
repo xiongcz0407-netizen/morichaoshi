@@ -653,3 +653,22 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .ccard{display:flex;gap:14px;align-items:center;padding:10px 4px}
 .ccard .cav{width:64px;height:64px;border-radius:50%;background:#e8a33a;color:#4a2511;font-size:30px;font-weight:800;display:flex;align-items:center;justify-content:center;border:3px solid #9a4f1c}
 .ccard .cn{font-size:18px}
+
+/* 0.42 不在超市地图时尸潮是灰的 */
+.dt.td.off{opacity:.45;filter:grayscale(1)}
+
+/* 0.42 键盘弹出时：面板贴到键盘上面剩下的那块屏幕 */
+body.kbon #panel{position:fixed;inset:auto 0 auto 0;top:var(--vvt,0);height:var(--vvh,100%);align-items:stretch;padding:0}
+body.kbon .pbox{max-height:100%;height:100%;border-width:6px}
+body.kbon .pbox header,body.kbon #pbody .btabs,body.kbon #pbody .chelp{display:none}
+body.kbon #pbody{flex:1;min-height:0;display:flex;flex-direction:column;padding:4px 8px}
+body.kbon .chead{margin-bottom:2px}
+body.kbon .clog{flex:1;height:auto;min-height:30px}
+body.kbon .cin{margin-top:4px}
+
+/* 0.42 工坊面板 */
+.wsrow{border-bottom:1px solid var(--line);padding:8px 4px;display:flex;flex-direction:column;gap:4px}
+.wsrow .wn{display:flex;align-items:center;gap:8px}.wsrow .wn b{display:flex;align-items:center;gap:6px}.wsrow .wn .icon{width:28px;height:28px}
+.wsrow .ws-st{font-size:13px}.wsrow .pg{display:inline-block;width:90px;height:8px;margin-left:8px;background:rgba(0,0,0,.12);border-radius:4px;overflow:hidden;vertical-align:middle}.wsrow .pg i{display:block;height:100%;background:var(--good)}
+.wsrow .btns{display:flex;flex-wrap:wrap;gap:6px}.wsrow .btn small{font-weight:400;margin-left:2px}
+#wsBtn{bottom:calc(124px + var(--sb));background:#c89a5a;color:#2a1a0c}
