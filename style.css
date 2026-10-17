@@ -186,23 +186,33 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
 #labels.hidden{display:none}
 /* ---------- 头像 ---------- */
 .avatar{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,240,210,.5);background:#3a332b;flex:none;cursor:pointer;pointer-events:auto}
-/* ---------- 创建人物 ---------- */
-#creator{position:absolute;inset:0;z-index:30;display:flex;justify-content:flex-end;align-items:stretch;pointer-events:none;
-  padding:calc(8px + var(--st)) calc(10px + var(--sr)) calc(8px + var(--sb)) 0}
+/* ---------- 创建人物（设计 18l）：预览固定（横屏左边、竖屏上半屏），分页、横向滑动，底部按钮固定 ---------- */
+#creator{position:absolute;inset:0;z-index:55;display:flex;justify-content:space-between;align-items:stretch;pointer-events:none;
+  padding:calc(8px + var(--st)) calc(10px + var(--sr)) calc(8px + var(--sb)) calc(10px + var(--sl, 0px))}
 #creator.hidden{display:none}
-.cbox{pointer-events:auto;width:min(430px,58vw);background:rgba(30,26,22,.94);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
-.chead{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--line)}
-.chead b{font-size:16px;color:var(--acc)}#cAvatar{width:64px;height:74px;border-radius:10px}
-.cbody{flex:1;overflow-y:auto;padding:6px 12px;touch-action:pan-y;-webkit-overflow-scrolling:touch}
-.crow{display:flex;align-items:center;gap:8px;padding:4px 0}.crow .cl{width:34px;flex:none;font-size:12px;color:var(--ink2)}
-.cs{display:flex;flex-wrap:wrap;gap:5px}
-.sw{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.2)}.sw.on{border-color:#fff;box-shadow:0 0 0 2px var(--acc)}
-.ct{min-width:30px;padding:4px 8px;border-radius:8px;background:rgba(255,255,255,.08);font-size:12px}.ct.on{background:var(--acc);color:#2b2620;font-weight:700}
-.cthumb{padding:0;border-radius:8px;border:2px solid transparent;background:#3a332b;line-height:0}.cthumb.on{border-color:var(--acc)}.cthumb canvas{width:38px;height:38px}
-.cfoot{display:flex;gap:8px;padding:8px 12px;border-top:1px solid var(--line)}.cfoot .btn{flex:1;margin:0}
-.cbox .note{margin:0 12px 8px;font-size:11px}
-
-#cName{flex:1;min-width:0;max-width:220px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:#1e1a16;color:#fff3d6;font-size:14px;outline:none}#cName:focus{border-color:var(--acc)}
+body.creating #rotate{display:none!important}
+.cprev{pointer-events:auto;flex:1;position:relative;touch-action:none}
+.csex{position:absolute;left:0;top:0;display:flex;gap:6px}.csex .ct{min-width:44px;padding:6px 10px}
+#cAvatar{position:absolute;left:0;bottom:0;width:56px;height:65px;border-radius:10px;opacity:.9}
+.chint{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);font-size:11px;color:var(--dim);white-space:nowrap}
+.cbox{pointer-events:auto;width:min(400px,54vw);background:rgba(30,26,22,.94);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
+.cname{display:flex;align-items:center;gap:8px;padding:6px 12px}.cname b{font-size:15px;color:var(--acc);white-space:nowrap}
+.ctabs{display:flex;gap:4px;padding:0 10px}
+.ctab{flex:1;padding:7px 0;border-radius:10px 10px 0 0;background:rgba(255,255,255,.06);font-size:13px;color:var(--ink2)}.ctab.on{background:rgba(255,255,255,.14);color:#fff3d6;font-weight:700}
+.cpage{flex:1;min-height:0;overflow:hidden;background:rgba(255,255,255,.07);margin:0 10px;border-radius:0 0 10px 10px;padding:4px 8px;display:flex;flex-direction:column;justify-content:space-evenly}
+.crow2{display:flex;align-items:center;gap:8px;min-height:40px}.crow2 .cl{width:30px;flex:none;font-size:12px;color:var(--ink2)}
+.chs{flex:1;min-width:0;display:flex;gap:7px;align-items:center;overflow-x:auto;overflow-y:hidden;padding:4px 2px;touch-action:pan-x;-webkit-overflow-scrolling:touch;scrollbar-width:none}.chs::-webkit-scrollbar{display:none}
+.chs>*{flex:none}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.2)}.sw.on{border-color:#fff;box-shadow:0 0 0 2px var(--acc)}
+.ct{min-width:30px;padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.08);font-size:12px}.ct.on{background:var(--acc);color:#2b2620;font-weight:700}
+.cstyle{padding:6px 12px;border-radius:10px;background:#3a332b;border:2px solid transparent;font-size:12px}.cstyle.on{border-color:var(--acc)}
+.cfoot{display:flex;gap:8px;padding:8px 10px}.cfoot .btn{flex:1;margin:0}
+#cName{flex:1;min-width:0;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#1e1a16;color:#fff3d6;font-size:14px;outline:none}#cName:focus{border-color:var(--acc)}
+@media (orientation:portrait){
+  #creator{flex-direction:column;padding:calc(8px + var(--st)) 10px calc(8px + var(--sb)) 10px}
+  .cprev{flex:none;height:46%}
+  .cbox{width:auto;flex:1;min-height:0}
+}
 .cell .n small{font-size:10px;color:var(--ink2);font-weight:400}.cell .n.full{color:#ff7a5c}
 .lab small.warn{color:#ff9a80}
 details.help{border:1px solid var(--line);border-radius:10px;margin:6px 0;background:rgba(255,255,255,.03)}
