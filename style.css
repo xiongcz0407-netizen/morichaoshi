@@ -186,11 +186,10 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
 #labels.hidden{display:none}
 /* ---------- 头像 ---------- */
 .avatar{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,240,210,.5);background:#3a332b;flex:none;cursor:pointer;pointer-events:auto}
-/* ---------- 创建人物（设计 18l）：预览固定（横屏左边、竖屏上半屏），分页、横向滑动，底部按钮固定 ---------- */
+/* ---------- 创建人物（设计 18l）：预览固定在左边（设计 29：游戏只有横屏），分页、横向滑动，底部按钮固定 ---------- */
 #creator{position:absolute;inset:0;z-index:55;display:flex;justify-content:space-between;align-items:stretch;pointer-events:none;
   padding:calc(8px + var(--st)) calc(10px + var(--sr)) calc(8px + var(--sb)) calc(10px + var(--sl, 0px))}
 #creator.hidden{display:none}
-body.creating #rotate{display:none!important}
 .cprev{pointer-events:auto;flex:1;position:relative;touch-action:none}   /* 拖预览不滚页面也不转人物 */
 .csex{position:absolute;left:0;top:0;display:flex;gap:6px}.csex .ct{min-width:44px;padding:6px 10px}
 #cAvatar{position:absolute;left:0;bottom:0;width:56px;height:65px;border-radius:10px;opacity:.9}
@@ -210,11 +209,6 @@ body.creating #rotate{display:none!important}
 .cstyle{padding:6px 12px;border-radius:10px;background:#3a332b;border:2px solid transparent;font-size:12px}.cstyle.on{border-color:var(--acc)}
 .cfoot{display:flex;gap:8px;padding:8px 10px}.cfoot .btn{flex:1;margin:0}
 #cName{flex:1;min-width:0;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#1e1a16;color:#fff3d6;font-size:14px;outline:none}#cName:focus{border-color:var(--acc)}
-@media (orientation:portrait){
-  #creator{flex-direction:column;padding:calc(8px + var(--st)) 10px calc(8px + var(--sb)) 10px}
-  .cprev{flex:none;height:46%}
-  .cbox{width:auto;flex:1;min-height:0}
-}
 .cell .n small{font-size:10px;color:var(--ink2);font-weight:400}.cell .n.full{color:#ff7a5c}
 .lab small.warn{color:#ff9a80}
 details.help{border:1px solid var(--line);border-radius:10px;margin:6px 0;background:rgba(255,255,255,.03)}
@@ -519,19 +513,29 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .hero .hview{flex:0 0 220px;text-align:center}
 .hero #heroView{width:220px;height:260px;border-radius:14px;background:radial-gradient(circle at 50% 40%,rgba(255,220,160,.18),rgba(0,0,0,.25));overflow:hidden}
 .hero .heroCv{width:220px;height:260px;display:block}
-.hero .hcards{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
-.hcard{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
-.hcard h5{margin:0 0 4px;font-size:15px;display:flex;align-items:center;gap:8px}
-.hcard h5 small{color:var(--ink2);font-weight:400}
-.hcard .skin{font-size:11px;border-radius:6px;padding:1px 6px;color:#fff;background:#3a3d40}
-.hcard .skin.s-camo{background:#56623a}.hcard .skin.s-gold{background:#c8941e;color:#2a2010}
-.hcard .hrow{display:flex;gap:8px;align-items:baseline;font-size:13px}
-.hcard .hrow span{color:var(--ink2);min-width:36px}
-.hcard .hrow em{color:#7fd67a;font-style:normal}
-.hcard .cost{display:flex;gap:10px;font-size:12px;margin:6px 0 4px}
-.hcard .cost .ok{color:#7fd67a}.hcard .cost .lack{color:var(--bad)}
-.hcard .btn{padding:6px 14px;font-size:13px}
-@media (max-height:420px){.hero .hview{flex-basis:180px}.hero #heroView,.hero .heroCv{width:180px;height:212px}}
+.hero{align-items:stretch}
+/* 设计 28：升级格子 3 列 × 2 行（竖屏 2 × 3），一屏放下 */
+.hero .hright{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;position:relative}
+.hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.hcell{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;cursor:pointer;min-width:0}
+.hcell .hname{font-size:13px;font-weight:700;display:flex;align-items:center;gap:4px;white-space:nowrap}
+.hcell .skin{font-size:10px;border-radius:5px;padding:0 4px;color:#fff;background:#3a3d40;font-weight:400}
+.hcell .skin.s-camo{background:#56623a}.hcell .skin.s-gold{background:#c8941e;color:#2a2010}
+.hcell .hlv{font-size:18px;font-weight:800;line-height:1.1}
+.hcell .hval{font-size:12px;white-space:nowrap}
+.hcell .hval em{color:var(--good);font-style:normal;font-weight:700;margin-left:2px}
+.hcell .hup{padding:4px 8px;font-size:12px;margin-top:3px;white-space:nowrap}
+.hcell .hup .lack{color:var(--bad);font-weight:800}
+.hcell .hup.no{filter:none;opacity:1;background:#e9dcc0;border-color:#c9b48c;box-shadow:none}.hcell .hup.no span{color:#8f7a5a}.hcell .hup.no span.lack{color:var(--bad)}
+.hcell .hfoot{font-size:12px;margin-top:5px;padding:3px 6px;border-radius:6px;white-space:nowrap}
+.hcell .hfoot.max{color:var(--good);font-weight:700}
+.hcell .hfoot.cap{color:var(--dim)}
+.hcell.locked{opacity:.55;justify-content:center}
+.hcell.pop{animation:hpop .5s ease-out}
+@keyframes hpop{0%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,210,90,.9)}40%{transform:scale(1.06);box-shadow:0 0 0 6px rgba(255,210,90,.6)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,210,90,0)}}
+.hres{font-size:13px;padding:2px 2px 0}
+.htip{position:absolute;left:0;right:0;bottom:24px;background:#fff6dd;color:#4a2511;border:2px solid #c99257;border-radius:8px;padding:8px 10px;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:2}
+@media (max-height:420px){.hero .hview{flex-basis:170px}.hero #heroView,.hero .heroCv{width:170px;height:200px}.hero .hview .note{margin:4px 0 0;font-size:12px}}
 /* 0.20 确认框（商城买东西） */
 #askBox{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center}
 #askBox.hidden{display:none}
@@ -587,6 +591,7 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .pbox .dropbar{background:#f3d79f;border:2px solid #c99257;border-radius:6px}
 .pbox .dropbar.warn{background:#f6c0a0;border-color:#c2341d}
 .cell .sub span{white-space:nowrap}
+
 .pbox .hcard{border:8px solid transparent;border-image:url(img/ui/sv_card.png) 8 fill / 8px stretch;background:none;border-radius:0}
 .pbox .hcard .hrow em,.pbox .hcard .cost .ok{color:var(--good)}
 .pbox .hview{background:#f3d79f;border:3px solid #c99257;border-radius:6px}
@@ -692,3 +697,61 @@ body.kbon .cin{margin-top:4px}
 .cbox2 .cbt{font-size:12px;color:var(--ink2);margin-bottom:4px}
 .cbox2 .cs2{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px}
 .cbox2>.ct,.cbox2>.ci,.cbox2>.sw{margin:0 4px 4px 0;vertical-align:middle}
+
+/* ================= 设计 29：通用面板框架（只做横屏） ================= */
+.pbox.framed{height:100%;width:min(820px,100%)}
+.pbox header{gap:8px}
+.pres{flex:1;display:flex;justify-content:center;gap:10px;min-width:0}
+.rchip{display:inline-flex;align-items:center;gap:3px;font-size:14px;padding:1px 10px;border-radius:12px;background:rgba(155,90,40,.12);white-space:nowrap}
+.rchip b{font-weight:800}
+.px.ph{min-width:30px;padding:4px 10px;font-weight:800}
+.px.ph.hidden{display:none}
+.pbox{position:relative}
+.phelpbox{position:absolute;right:14px;top:44px;width:min(380px,70%);max-height:70%;overflow-y:auto;z-index:5;background:#fff6dd;color:#4a2511;border:3px solid #c99257;border-radius:8px;padding:8px 12px;font-size:13px;line-height:1.6;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.phelpbox p{margin:4px 0}.phelpbox.hidden{display:none}
+.pbody.framed{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:2px 4px 4px}
+.pf{flex:1;min-height:0;display:flex;flex-direction:column;gap:5px}
+.pf-tabs{display:flex;gap:4px;flex-wrap:nowrap}
+.pf-tab{padding:4px 14px;border-radius:8px;font-size:13px;background:rgba(155,90,40,.12);position:relative;white-space:nowrap}
+.pf-tab.on{background:#c9601c;color:#fff3d6;font-weight:700}
+.pf-tab .dot{position:absolute;right:2px;top:2px;width:7px;height:7px;border-radius:50%;background:#e04030}
+.pf-top{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--ink2)}
+.pf-main{flex:1;min-height:0;display:flex;gap:8px}
+.pf-left{flex:none;display:flex;flex-direction:column}
+.pf-gw{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.pf-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));grid-template-rows:repeat(var(--rows),minmax(0,1fr));gap:6px}
+.pf-cell{min-width:0;min-height:0;overflow:hidden;cursor:pointer;position:relative;border:8px solid transparent;border-image:url(img/ui/sv_card.png) 8 fill / 8px stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;text-align:center;padding:0 2px}
+.pf-cell.sel{outline:3px solid #c9601c;outline-offset:-1px}
+.pf-empty{grid-column:1/-1;align-self:center;text-align:center;color:var(--dim);font-size:13px}
+.pf-pager{display:flex;align-items:center;justify-content:center;gap:10px;height:20px}
+.pf-pager button{padding:0 10px;font-size:13px;border-radius:6px;background:rgba(155,90,40,.15)}.pf-pager button:disabled{opacity:.3}
+.pf-pager span{display:flex;gap:5px}.pf-pager i{width:7px;height:7px;border-radius:50%;background:rgba(155,90,40,.3)}.pf-pager i.on{background:#c9601c}
+.pf-detail{flex:0 0 184px;min-height:0;overflow:hidden;background:#f3d79f;border:3px solid #c99257;border-radius:6px;padding:6px 8px;font-size:13px;display:flex;flex-direction:column;gap:3px}
+.pf-detail h5{margin:0 0 2px;font-size:14px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}.pf-detail h5 small{font-weight:400;color:var(--ink2)}
+.pf-detail h5 .icon{width:26px;height:26px}
+.pf-detail .drow{display:flex;gap:6px;align-items:baseline}.pf-detail .drow span{color:var(--ink2);min-width:46px}.pf-detail .drow em{color:var(--good);font-style:normal;font-weight:700}
+.pf-detail p{margin:2px 0}.pf-detail .note{font-size:12px}
+.pf-detail .btn{margin-top:auto}
+.pf-detail .dsub{font-size:12px;color:var(--ink2);margin-top:4px}
+.pf-detail .dstep{display:flex;gap:4px;align-items:center;justify-content:space-between}.pf-detail .dstep b{min-width:28px;text-align:center}
+.pf-detail .dstep{gap:3px}.pf-detail .dstep .btn{margin:0;padding:2px 5px;font-size:12px;min-width:0}.pf-detail .dstep b{min-width:22px}
+/* 仓库等物品格子 */
+.icell .icon{width:30px;height:30px;flex:none}.icell .inm{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:var(--ink2)}
+.icell .in{font-size:14px;font-weight:800;line-height:1.1}.icell .in small{font-size:10px;color:var(--ink2);font-weight:400}
+.icell.full .in{color:var(--bad)}
+.itag{position:absolute;right:0;top:0;font-size:9px;background:#e04030;color:#fff;border-radius:5px;padding:0 3px}
+.pf-detail .itag{position:static}
+/* 角色面板放进框架 */
+.pf-left .hview{background:#f3d79f;border:3px solid #c99257;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:4px}
+.pf-left #heroView,.pf-left .heroCv{width:150px;height:177px}
+.pf-left .hview .note{margin:2px 0 0;font-size:11px;text-align:center;max-width:150px}
+.pf-cell.hcell{padding:0}
+.pf-detail .hup.big{width:100%;font-size:14px;padding:6px}
+.icell{gap:0}.icell .icon{width:28px;height:28px}.icell .in{font-size:13px}.icell .inm{font-size:10px;line-height:1.15}
+.hcell.locked .hlv{font-size:14px}
+.pf-cell.hcell .hfoot{white-space:nowrap;font-size:11px}
+@media (max-width:720px){
+  .pf-left #heroView,.pf-left .heroCv{width:118px;height:140px}.pf-left .hview .note{max-width:118px}
+  .pf-detail{flex-basis:164px}.pf-detail .drow{font-size:12px;white-space:nowrap;gap:4px}.pf-detail .drow span{min-width:30px}.icell .icon{width:24px;height:24px}
+  .pf-cell.hcell .hup{padding:3px 4px;font-size:11px}.pf-cell.hcell .hname{font-size:12px}.pf-cell.hcell .hlv{font-size:16px}.pf-cell.hcell .hval{font-size:11px}
+}
