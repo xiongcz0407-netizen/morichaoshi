@@ -191,10 +191,9 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
   padding:calc(8px + var(--st)) calc(10px + var(--sr)) calc(8px + var(--sb)) calc(10px + var(--sl, 0px))}
 #creator.hidden{display:none}
 body.creating #rotate{display:none!important}
-.cprev{pointer-events:auto;flex:1;position:relative;touch-action:none}
+.cprev{pointer-events:auto;flex:1;position:relative;touch-action:none}   /* 拖预览不滚页面也不转人物 */
 .csex{position:absolute;left:0;top:0;display:flex;gap:6px}.csex .ct{min-width:44px;padding:6px 10px}
 #cAvatar{position:absolute;left:0;bottom:0;width:56px;height:65px;border-radius:10px;opacity:.9}
-.chint{position:absolute;left:50%;bottom:4px;transform:translateX(-50%);font-size:11px;color:var(--dim);white-space:nowrap}
 .cbox{pointer-events:auto;width:min(400px,54vw);background:rgba(30,26,22,.94);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;overflow:hidden}
 .cname{display:flex;align-items:center;gap:8px;padding:6px 12px}.cname b{font-size:15px;color:var(--acc);white-space:nowrap}
 .ctabs{display:flex;gap:4px;padding:0 10px}
@@ -205,6 +204,9 @@ body.creating #rotate{display:none!important}
 .chs>*{flex:none}
 .sw{width:30px;height:30px;border-radius:50%;border:2px solid rgba(255,255,255,.2)}.sw.on{border-color:#fff;box-shadow:0 0 0 2px var(--acc)}
 .ct{min-width:30px;padding:5px 9px;border-radius:8px;background:rgba(255,255,255,.08);font-size:12px}.ct.on{background:var(--acc);color:#2b2620;font-weight:700}
+.cthumbs{gap:10px;align-items:center;height:100%;padding:6px 2px}
+.cthumb{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:124px;padding:4px;border-radius:12px;background:#3a332b;border:2px solid transparent;line-height:1.2}
+.cthumb.on{border-color:var(--acc);box-shadow:0 0 0 2px rgba(240,180,60,.35)}.cthumb img{width:112px;height:112px;object-fit:contain}.cthumb span{font-size:11px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:116px}
 .cstyle{padding:6px 12px;border-radius:10px;background:#3a332b;border:2px solid transparent;font-size:12px}.cstyle.on{border-color:var(--acc)}
 .cfoot{display:flex;gap:8px;padding:8px 10px}.cfoot .btn{flex:1;margin:0}
 #cName{flex:1;min-width:0;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:#1e1a16;color:#fff3d6;font-size:14px;outline:none}#cName:focus{border-color:var(--acc)}
