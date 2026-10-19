@@ -156,7 +156,6 @@ button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;touch-
   .bcards{gap:8px}.bcard{padding:8px}.pbody{padding:10px 12px}
   .tl h1{font-size:32px}.tw{gap:18px}.tr{width:310px}
 }
-@media (max-width:640px){.bcards{grid-template-columns:1fr}.tw{flex-direction:column}.tr{width:100%}}
 
 /* ---------- 第 2 层：种菜按钮、任务、温室 ---------- */
 .fab{position:absolute;right:calc(14px + var(--sr));bottom:calc(64px + var(--sb));z-index:6;background:#7cc77a;color:#1f2a1c;font-weight:700;font-size:16px;border-radius:999px;padding:12px 22px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
@@ -514,7 +513,7 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .hero #heroView{width:220px;height:260px;border-radius:14px;background:radial-gradient(circle at 50% 40%,rgba(255,220,160,.18),rgba(0,0,0,.25));overflow:hidden}
 .hero .heroCv{width:220px;height:260px;display:block}
 .hero{align-items:stretch}
-/* 设计 28：升级格子 3 列 × 2 行（竖屏 2 × 3），一屏放下 */
+/* 设计 28：升级格子 3 列 × 2 行，一屏放下 */
 .hero .hright{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;position:relative}
 .hgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .hcell{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:10px;padding:6px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;cursor:pointer;min-width:0}
@@ -755,3 +754,135 @@ body.kbon .cin{margin-top:4px}
   .pf-detail{flex-basis:164px}.pf-detail .drow{font-size:12px;white-space:nowrap;gap:4px}.pf-detail .drow span{min-width:30px}.icell .icon{width:24px;height:24px}
   .pf-cell.hcell .hup{padding:3px 4px;font-size:11px}.pf-cell.hcell .hname{font-size:12px}.pf-cell.hcell .hlv{font-size:16px}.pf-cell.hcell .hval{font-size:11px}
 }
+.itag.hot{background:#e08a1c}
+/* 设计 29b：详情区可以按面板设宽度；花费图标 */
+.pf-detail{flex-basis:var(--dw,184px)}
+.cic{display:inline-flex;align-items:center;gap:2px;font-weight:700;font-size:12px;margin-right:6px;white-space:nowrap}.cic .icon{width:18px;height:18px}.cic .ico-coin{width:15px;height:15px}.cic.lack{color:var(--bad)}.cic.tm{font-weight:400;color:var(--ink2)}
+.cic .xpi{font-size:9px;background:#4a7fc0;color:#fff;border-radius:3px;padding:0 2px}
+.pf-detail .dcost{display:flex;flex-wrap:wrap;row-gap:1px}
+.pf-detail .dlegend{font-size:10px;color:var(--dim)}
+.pf-detail em.good{color:var(--good);font-style:normal;font-weight:700}.pf-detail .drow em.cnt{color:var(--ink);font-weight:400}
+.pf-detail .btn.sm{padding:4px 6px;font-size:12px}
+.pf-detail .dtabs{display:flex;gap:3px}.pf-detail .dtabs button{flex:1;padding:1px 0;border-radius:5px;background:rgba(155,90,40,.15);font-size:12px;display:flex;justify-content:center;align-items:center;height:24px}.pf-detail .dtabs button.on{background:#c9601c;color:#fff}.pf-detail .dtabs .icon{width:20px;height:20px}
+.ggrid{display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
+.gpick{position:relative;display:flex;flex-direction:column;align-items:center;padding:1px 0 0;border-radius:5px;background:rgba(155,90,40,.10);border:2px solid transparent;line-height:1}
+.gpick .icon{width:24px;height:24px}.gpick small{font-size:9px;color:var(--ink2)}
+.gpick.on{border-color:#c9601c;background:#ffe9b8}.gpick.no{opacity:.45;filter:grayscale(1)}.gpick.no small{color:var(--bad)}.gpick.no.on{opacity:.8}
+/* 货柜格子 */
+.shcell{gap:2px}.shcell .shn{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.shcell .shn b{color:#c9601c}
+.shcell .shg{display:flex;gap:1px;justify-content:center;flex-wrap:wrap;min-height:26px;align-items:center}.shcell .shg .icon{width:24px;height:24px}
+.shcell .shnone{font-size:11px;color:var(--dim);border:1px dashed var(--dim);border-radius:4px;padding:2px 5px}
+.sbar{width:80%;height:6px;border-radius:3px;background:rgba(0,0,0,.15);overflow:hidden}.sbar i{display:block;height:100%;background:#5aa04a}
+.shcell .shc{font-size:11px;color:var(--ink2)}
+.shcell.emp .sbar i{background:#d07030}
+@media (max-width:720px){ .pf-detail{flex-basis:calc(var(--dw,184px) - 22px)} .ggrid{grid-template-columns:repeat(5,1fr)} .shcell .shg .icon{width:20px;height:20px} }
+/* 员工格子 / 详情 */
+.stcell{gap:1px}.stcell .sav{width:52px;height:52px;padding:2px;border-radius:9px}.stcell .sav .in{border-radius:7px}.stcell .sav .qn{font-size:8px;line-height:11px;letter-spacing:0}.stcell .sav .lvb{font-size:9px;left:3px;top:3px}
+.stcell .stn{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.stcell small{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pf-detail .sth{flex-wrap:nowrap}.pf-detail .sth span{display:flex;flex-direction:column;line-height:1.15}.pf-detail .sth small{font-size:11px}
+.sav.xs{width:34px;height:34px;padding:2px;border-radius:7px;flex:none}.sav.xs .in{border-radius:5px}.sav.xs .lvb,.sav.xs .qn,.sav.xs s{display:none}
+.pf-detail .nw{font-weight:400;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-detail .dbtns{margin-top:auto;display:flex;gap:4px}.pf-detail .dbtns .btn{margin:0;flex:1}.pf-detail .dbtns .bye{flex:none}
+.jgrid{display:grid;grid-template-columns:1fr 1fr;gap:3px}.jgrid button{padding:3px 2px;border-radius:6px;background:rgba(155,90,40,.15);font-size:12px;line-height:1.1;display:flex;flex-direction:column;align-items:center}.jgrid button.on{background:#c9601c;color:#fff;font-weight:700}.jgrid button:disabled{opacity:.45}.jgrid small{font-size:9px}
+.gupr{display:grid;grid-template-columns:44px 40px 34px 1fr;align-items:center;gap:2px;font-size:12px}.gupr span small{font-size:9px;color:var(--ink2);margin-left:2px}.gupr em{color:var(--good);font-style:normal;font-size:11px}.gupr .btn{margin:0;padding:2px 3px}.gupr .cic{margin-right:2px;font-size:11px}.gupr .cic .icon{width:14px;height:14px}
+.pf-detail .drow .un{margin:0 0 0 auto;padding:1px 6px}
+@media (max-width:720px){ .stcell .sav{width:42px;height:42px} .gupr{grid-template-columns:38px 36px 30px 1fr} }
+/* 建造：施工队条、格子 */
+.crews2{display:flex;align-items:center;gap:5px;width:100%;font-size:12px;min-width:0}.crews2>b{white-space:nowrap}
+.crew{flex:1;min-width:0;display:flex;align-items:center;gap:4px;background:rgba(155,90,40,.12);border-radius:6px;padding:1px 4px;height:26px}
+.crew.idle{flex:0 0 auto;color:var(--good);font-weight:700;padding:1px 8px}
+.crew .cw{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1 1 auto}.crew .prog{flex:0 0 40px;height:6px;background:rgba(0,0,0,.15)}.crew .cl{white-space:nowrap;font-size:11px}
+.crew .btn{margin:0;padding:0 2px;height:22px}.crew .btn .icon{width:18px;height:18px}
+.bdcell{gap:1px}.bdcell>.icon{width:34px;height:34px}.bdcell .bdn{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.bdcell small{font-size:10px;color:var(--ink2);white-space:nowrap}
+.bdcell .bcost{display:flex;flex-wrap:nowrap;justify-content:center;max-width:100%;overflow:hidden}.bdcell .bcost .cic{font-size:10px;margin-right:3px}.bdcell .bcost .icon{width:14px;height:14px}.bdcell .bcost .ico-coin{width:12px;height:12px}
+.bdcell .block{font-size:10px;color:var(--bad);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.bdcell.locked>.icon{filter:grayscale(1);opacity:.55}.bdcell .bst{font-size:10px;color:#c9601c;font-weight:700}
+.itag.ok{background:#5aa04a}
+.bdcell .tw0{font-size:26px;color:var(--dim);line-height:34px}
+.pf-detail .deff{font-size:12px;line-height:1.3;max-height:80px;overflow:hidden}
+.pf-detail .twb{display:flex;align-items:center;gap:3px;margin:0 0 2px;width:100%}.pf-detail .twb .twi{width:20px;height:20px}.pf-detail .twb .cic{margin:0 0 0 auto}.pf-detail .twb .cic.tm{margin:0}
+@media (max-width:720px){ .bdcell>.icon{width:28px;height:28px} .crew .prog{flex-basis:26px} }
+/* 商城格子 */
+.mcell{gap:1px}.mcell .mic{position:relative}.mcell .mic .icon{width:36px;height:36px}.mcell .mic em{position:absolute;right:-12px;bottom:-2px;font-style:normal;font-size:10px;font-weight:800;background:rgba(0,0,0,.65);color:#fff;border-radius:4px;padding:0 3px}
+.mcell .mnm{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.mcell .msub{font-size:11px;color:var(--ink2);white-space:nowrap}.mcell .msub .cic{margin:0}.mcell .msub .staric{width:14px;height:14px;vertical-align:-2px}
+.mcell.got{opacity:.6}.mcell.hot{box-shadow:inset 0 0 0 2px #5aa04a}.mcell.locked .mic{filter:grayscale(1);opacity:.5}
+.pf-detail .btn .cic{margin-right:2px}.pf-detail .btn .staric{width:16px;height:16px;vertical-align:-3px}
+.pf-tab .staric{width:14px;height:14px;vertical-align:-2px;margin-right:2px}
+.rchip .staric{width:20px;height:20px}
+@media (max-width:720px){ .mcell .mic .icon{width:30px;height:30px} }
+.pf-tabs .pf-tr{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink2);white-space:nowrap;min-width:0;overflow:hidden}
+.pf-detail .dup{margin-top:auto}.pf-detail .dup .dcost{align-items:center}.pf-detail .dup .dcost .btn{margin:0 0 0 auto}.pf-detail .dup .note{font-size:11px;line-height:1.1}
+.pf-top .btn,.pf-tr .btn{margin:0;padding:3px 8px}
+.qd{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--qc);margin-right:3px;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.icon.coinic{background:none;display:inline-grid;place-items:center}.icon.coinic .ico-coin{width:80%;height:80%}
+.rchip .staric{width:24px;height:24px}.rchip .scrollic{width:24px;height:24px}
+.pf-detail .deff{max-height:none;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;font-size:11.5px}
+.phelpbox{width:min(600px,82%);max-height:calc(100% - 56px);font-size:12px;line-height:1.5;padding:6px 12px}.phelpbox p{margin:3px 0}
+.shcell .itag{top:auto;bottom:0}
+@media (max-width:720px){
+  .pf-detail h5{flex-wrap:nowrap;white-space:nowrap;overflow:hidden;font-size:13px}.pf-detail h5 small{font-size:11px;overflow:hidden;text-overflow:ellipsis}
+  .ggrid{grid-template-columns:repeat(6,1fr)}.gpick .icon{width:20px;height:20px}.gpick small{font-size:8px}
+  .shcell .shnone{padding:1px 2px;font-size:10px}.shcell .shg{flex-wrap:nowrap}
+  .pf-detail .dtabs button{height:20px}
+}
+@media (max-width:720px){ .pf-detail{gap:2px;padding:5px 7px}.pf-detail .drow{line-height:1.25}.pf-top{font-size:11px} }
+.pf-detail>*{flex-shrink:0}.pf-detail .deff{-webkit-line-clamp:3}
+@media (max-width:720px){ .pf-detail .deff{-webkit-line-clamp:2} .pf-detail .twb{padding:2px 4px;margin-bottom:1px} }
+.pf-detail .deff .dk{color:var(--ink2);font-weight:400}
+@media (max-width:720px){ .jgrid{gap:2px}.jgrid button{padding:1px 2px}.jgrid+.note{font-size:11px;line-height:1.25} }
+/* 29d：详情区的字全部显示，不截断 */
+.pf-detail .deff{display:block;-webkit-line-clamp:unset;overflow:visible}
+.pf-detail .nw{white-space:normal}
+.pf-detail h5,.pf-detail .drow{white-space:normal!important;flex-wrap:wrap!important;overflow:visible!important}
+.pf-detail h5 small{overflow:visible;text-overflow:clip}
+.pbox .btn.ghost:disabled,.pbox .btn:disabled{background:#d8c3a0;color:#9a8566;border-color:#b79b74;box-shadow:none}
+.gpick:disabled{cursor:default}.gpick small{white-space:normal;line-height:1;word-break:break-all}
+/* 29d 尸潮格子 */
+.tdcell{gap:2px}.tdcell .tdn{font-size:14px}.tdcell small{font-size:11px;color:var(--ink2)}
+.tdst{font-size:11px;font-weight:700;border-radius:5px;padding:0 5px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.tdst.ok{color:#fff;background:#5aa04a}.tdst.go{color:#fff;background:#c9601c}.tdst.lk{color:var(--bad);font-weight:400}
+.tdcell.locked .tdn,.tdcell.locked small{opacity:.55}
+.itag.q-p{background:#9a3ff0}.itag.q-l{background:#e08a1c}.itag.q-p,.itag.q-l{font-size:9px}
+.rchip b{white-space:nowrap}
+/* 温室 / 工坊格子 */
+.fcell,.wcell{gap:1px}.fcell>.icon,.wcell>.icon{width:30px;height:30px}.fcell .fn,.wcell .fn{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.fcell small,.wcell small{font-size:10px;color:var(--ink2);white-space:nowrap}
+.fcell.empty{opacity:.75}.fcell.ripe{box-shadow:inset 0 0 0 2px #5aa04a}
+.sbar.wide{width:100%}
+.wcell .wins{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;max-width:100%;gap:0}.wcell .wins .cic{margin:0;font-size:10px}.wcell .wins .icon{width:16px;height:16px}.wcell .wins i{font-style:normal;font-size:9px;color:var(--dim);margin:0 1px}
+.wcell.lack>.icon{filter:grayscale(1);opacity:.55}
+.wlines{display:flex;align-items:center;gap:6px;width:100%;font-size:12px;white-space:nowrap;min-width:0;overflow:hidden}
+.wline{display:inline-flex;align-items:center;gap:3px;background:rgba(155,90,40,.12);border-radius:6px;padding:1px 6px;height:24px}.wline .icon{width:18px;height:18px}.wline .prog{width:36px;height:6px;background:rgba(0,0,0,.15)}
+.wline.idle{color:var(--dim)}.wline.full{color:var(--bad)}
+.pf-detail .drow em.bad{color:var(--bad)}.pf-detail .drow>span .icon{width:18px;height:18px}
+.pf-detail .dstep small{font-size:11px;color:var(--ink2)}
+/* 设置 */
+.pf-body{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.srow2{display:flex;align-items:center;gap:10px;background:#f3d79f;border:2px solid #c99257;border-radius:6px;padding:6px 10px}
+.srow2 .st{flex:1;min-width:0}.srow2 .st b{font-size:14px}.srow2 .note{font-size:12px;margin:1px 0 0}.srow2 .sc{flex:none;display:flex;gap:6px}.srow2 .btn{margin:0}
+.tog{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 3px;border-radius:14px;background:#d8c3a0;color:#5b2b17;font-weight:700;font-size:13px}
+.tog i{width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3)}.tog.on{background:#5aa04a;color:#fff;flex-direction:row-reverse;padding:3px 3px 3px 10px}
+.sub2{font-size:13px;font-weight:700;color:var(--ink2)}
+.sbox{flex:1;min-height:0;overflow-y:auto;background:#fff6dd;border:2px solid #c99257;border-radius:6px;padding:6px 10px;font-size:12px;line-height:1.5;-webkit-overflow-scrolling:touch}
+.sbox h5{margin:4px 0 2px;font-size:13px}.sbox ul{margin:0;padding-left:18px}.sbox p{margin:3px 0}
+.hsplit{flex:1;min-height:0;display:flex;gap:8px}.htopics{flex:0 0 190px;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:3px}
+.htopics button{font-size:11px;padding:3px 2px;border-radius:5px;background:rgba(155,90,40,.12);line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.htopics button.on{background:#c9601c;color:#fff}
+.pf-body .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.pf-body .stats>div{background:#f3d79f;border:2px solid #c99257;border-radius:6px;padding:3px 6px;font-size:11px;display:flex;flex-direction:column}.pf-body .stats b{font-size:14px}
+@media (max-width:720px){ .htopics{flex-basis:160px} .fcell>.icon,.wcell>.icon{width:24px;height:24px} }
+.tdst.lk{white-space:normal;line-height:1.15;text-align:center;font-size:10.5px}
+.htopics{flex-basis:214px}.htopics button{overflow:visible;text-overflow:clip;padding:2px;line-height:1.15}
+@media (max-width:720px){ .htopics{flex-basis:190px;gap:2px}.htopics button{font-size:10.5px;padding:1px 2px} }
+.pf-detail .dup .note{margin:0}.pf-detail .dtabs{margin:1px 0}
+.icon.coinic{display:flex}.icon.coinic .ico-coin{width:28px;height:28px;flex:none}.pf-detail h5 .icon.coinic .ico-coin{width:22px;height:22px}
+.gpick .icon{width:22px;height:22px}.ggrid{gap:2px}
+.jgrid{gap:2px}.jgrid button{padding:2px}.jgrid+.note{font-size:11.5px;line-height:1.3;margin:2px 0 0}
+@media (max-width:720px){ .tdst{font-size:10px;padding:0 3px;text-overflow:clip} .tdcell .tdn{font-size:13px} }
+@media (max-width:720px){ .pf-detail .dlegend{display:none} }
+@media (max-width:720px){ .pf-detail>.btn,.pf-detail .dbtns .btn{padding-top:4px;padding-bottom:4px} }
+/* 29f */
+.tdst.lk{white-space:nowrap}
+.icon.img.coinic{background:rgba(155,90,40,.12)}.mcell .mic .icon.coinic .ico-coin{width:26px;height:26px}
+.mcell .mic em{right:-6px;bottom:-4px}
+.gpick small{word-break:keep-all}
+.mcell .mic{margin-bottom:4px}.mcell .mic em{right:-8px;bottom:-5px;font-size:9px;padding:0 2px}
+.pf-detail,.pf-cell,.pf-body .srow2,.pf-tabs{text-wrap:pretty}
+@media (max-width:720px){ .tdst.lk{font-size:9.5px;padding:0 1px} }
