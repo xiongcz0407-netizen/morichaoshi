@@ -886,3 +886,22 @@ body.kbon .cin{margin-top:4px}
 .mcell .mic{margin-bottom:4px}.mcell .mic em{right:-8px;bottom:-5px;font-size:9px;padding:0 2px}
 .pf-detail,.pf-cell,.pf-body .srow2,.pf-tabs{text-wrap:pretty}
 @media (max-width:720px){ .tdst.lk{font-size:9.5px;padding:0 1px} }
+/* 设计 30：性能小窗 */
+#perfBox{position:fixed;left:6px;top:52px;z-index:60;background:rgba(20,16,12,.82);color:#fff;font-size:11px;line-height:1.35;padding:4px 6px;border-radius:6px;max-width:300px;pointer-events:auto}
+#perfBox b{color:#ffd36a}#perfBox .popts{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
+#perfBox .popts button{font-size:10px;padding:1px 5px;border-radius:4px;background:#555;color:#ddd}#perfBox .popts button.on{background:#5aa04a;color:#fff}
+#perfBox .pnote{color:#ffb080;font-size:10px}
+/* 待改小问题 */
+.ggrid.named{grid-template-columns:repeat(4,1fr)}.ggrid.named .gpick{padding:2px 0}.ggrid.named .gpick .gn{color:var(--ink);font-size:10px;white-space:nowrap}
+.pf-detail .dgain{display:flex;gap:2px;align-items:flex-start}.pf-detail .dgain em{white-space:nowrap}
+.itag.raw{background:#7a6a5a}
+
+/* 35：货架选货翻页 */
+.ggrid.pg{grid-template-columns:repeat(6,1fr)!important}.dlegend{display:flex;align-items:center;gap:4px}.gpager{margin-left:auto;display:flex;align-items:center;gap:4px;white-space:nowrap}.gpager .btn{padding:0 8px;min-height:0;line-height:1.5}
+@media (max-width:720px){ .pf-detail .dlegend:has(.gpager){display:flex}.pf-detail .dlegend .lgt{display:none} }
+/* 35：页签多时紧凑一点，还放不下就左右滑（选中的自动露出来） */
+.pf-tabs.many{position:relative;overflow:hidden;gap:3px}.pf-tabs.many .pf-tab{padding:4px 8px;font-size:12px;flex:none}
+.dlegend .lgt{white-space:nowrap;overflow:hidden}.gpager button{width:30px;height:22px;border-radius:6px;background:rgba(155,90,40,.15);font-size:11px;color:var(--ink)}.gpager button:disabled{opacity:.35}.gpager b{font-size:11px;color:var(--ink2)}
+/* 35d：页签翻页按钮 */
+.pf-tabs .tabpg{flex:none;width:30px;border-radius:8px;background:rgba(155,90,40,.15);font-size:12px;color:var(--ink)}.pf-tabs .tabpg:disabled{opacity:.3}
+.ggrid.named.fr{grid-template-columns:repeat(3,1fr)}
