@@ -999,3 +999,44 @@ body.kbon .cin{margin-top:4px}
 
 .ictip{position:fixed;z-index:99;transform:translate(-50%,-100%);background:rgba(30,26,22,.92);color:#fff;font-size:13px;padding:3px 8px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .15s;white-space:nowrap}
 .ictip.on{opacity:1}
+
+/* ================= 设计 44：左右分开滚动（代替 37a「一个面板一个滚动区」）=================
+   .pf-main 自己不滚，左边格子（.pf-gw）、右边详情（.pf-detail）、最左一栏（.pf-left）各一个滚动区，各拖各的；
+   标题栏、页签、资源条、顶上小条在 .pf-main 外面，不跟着滚。只有一整块内容的面板（.pf-main.one）还是整块滚 */
+.pf-main{overflow:hidden;align-items:stretch;padding-bottom:0}
+.pf-main.one{overflow-y:auto;align-items:flex-start;padding-bottom:10px}
+.pf-gw,.pf-detail,.pf-left{min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;touch-action:pan-y;scrollbar-width:thin;scrollbar-color:rgba(120,60,20,.45) transparent}
+.pf-gw::-webkit-scrollbar,.pf-detail::-webkit-scrollbar,.pf-left::-webkit-scrollbar{width:4px}
+.pf-gw::-webkit-scrollbar-thumb,.pf-detail::-webkit-scrollbar-thumb,.pf-left::-webkit-scrollbar-thumb{background:rgba(120,60,20,.45);border-radius:2px}
+.pf-gw{padding-bottom:10px;padding-right:2px}
+.pf-detail{position:static;align-self:stretch;max-height:100%}
+.pf-detail::after{content:'';display:block;flex:none;height:6px}   /* 拉到底，最后的按钮下面留一点空，不贴边 */
+
+/* 设计 45：选货格子——右上角红色「没上架」、下面「也在 2、5号卖」；顶上「有 N 样货没上架」；货柜头顶灰色小点（这个货柜空了、别的货柜还有） */
+.gpick{position:relative}
+.gpick .nots{position:absolute;top:2px;right:2px;background:#d8402c;color:#fff;font-size:12px;line-height:1;padding:3px 4px;border-radius:4px;font-weight:700;z-index:1}
+.gpick small.also{color:#8f6a45;line-height:1.15}
+.btn.warnb{background:#d8402c;color:#fff;border-color:#9b2a1a}
+.lab .sgdot{position:relative;display:flex;justify-content:center}
+.lab .sgdot>i{display:block;width:12px;height:12px;border-radius:50%;background:#9a9a9a;box-shadow:0 0 0 2px rgba(255,255,255,.85),0 1px 3px rgba(0,0,0,.5)}
+.lab .sgdot .upin{position:absolute;top:-12px;left:calc(50% + 6px);display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#4cbb3c;color:#fff;font-size:15px}
+/* 设计 45 顺手改：温室每块地只画一条小进度条（熟了金色），最近 3 块另外写字（往上挪一点，别压着进度条） */
+.lab.gbar .pg{display:block;width:34px;height:6px;border-radius:3px;background:rgba(0,0,0,.45);box-shadow:0 0 0 1px rgba(255,255,255,.5);overflow:hidden}
+.lab.gbar .pg i{display:block;height:100%;background:#7ed957}
+.lab.gbar .pg.ripe i{background:#ffc933;width:100%!important}
+.lab.gtxt .box{margin-bottom:10px;font-size:12px;white-space:nowrap}
+/* 设计 45 顺手改：建造面板的施工队一个一行（竖着排），在左边格子上面，跟着一起拉，不缩字 */
+.pf-gw .crews2{display:flex;flex-direction:column;align-items:stretch;gap:6px;width:auto;font-size:14px;margin-bottom:8px}
+.crews2 .crh{display:flex;align-items:center;gap:10px}.crews2 .crh b{font-size:15px}.crews2 .crh .btn{margin:0 0 0 auto}
+.crews2 .crew{flex:none;height:auto;min-height:44px;padding:2px 8px;gap:8px;font-size:14px}
+.crews2 .crew .cw{white-space:normal;overflow:visible}
+.crews2 .crew .prog{flex:0 0 80px;height:8px;border-radius:4px;overflow:hidden}
+.crews2 .crew .cl{font-size:13px;min-width:44px;text-align:right}
+.crews2 .crew .btn{height:auto;min-height:40px;min-width:44px;padding:0 6px}.crews2 .crew .btn .icon{width:24px;height:24px}
+.crews2 .crew.idle{color:var(--good);font-weight:700}
+/* 八：牧场棚——不是最近 2 个的只画小进度条；饿了 / 存满了变红、画「!」 */
+.lab.gbar{display:flex;align-items:center;gap:3px}
+.lab.gbar .pg.bad i{background:#e04030}
+.lab.gbar .ex{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#e04030;color:#fff;font-size:12px;font-weight:900;box-shadow:0 0 0 2px rgba(255,255,255,.8)}
+.pf-cell small.wtm{white-space:normal;line-height:1.2}
+.fcell small.why{color:#b5582a;font-weight:700}
