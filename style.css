@@ -1060,7 +1060,7 @@ body.kbon .cin{margin-top:4px}
 @keyframes fblow{from{box-shadow:0 0 0 0 rgba(255,40,30,.0);border-color:#b89a6a}to{box-shadow:0 0 18px 4px rgba(255,40,30,.8);border-color:#ff4030}}
 .fbuffs{display:flex;gap:4px;min-height:14px}.fbuffs span{font-size:10px;background:rgba(0,0,0,.55);color:#cfe8ff;border-radius:4px;padding:0 4px}
 /* BOSS 框（上面中间） */
-.fbb{position:absolute;left:50%;top:calc(6px + var(--st));transform:translateX(-50%);width:min(300px,34vw);display:flex;flex-direction:column;gap:3px;align-items:stretch}
+.fbb{position:absolute;left:50%;top:calc(6px + var(--st));transform:translateX(-50%);width:calc(min(280px,31vw) + 70px);padding-left:70px;display:flex;flex-direction:column;gap:3px;align-items:stretch}
 .fbb .bnm{display:flex;justify-content:center;gap:8px;align-items:baseline;color:#ffd9c0;text-shadow:0 1px 3px #000}.fbb .bnm b{font-size:16px}.fbb .bnm small{font-size:11px;color:#d8b8a0}
 .bbar{height:20px;border-color:#2a0806;box-shadow:0 0 0 2px #8a3a2a}
 .bbar .lag{background:#f0d090}.bbar .cur{background:linear-gradient(180deg,#e8483a,#9a1a12)}
@@ -1155,3 +1155,49 @@ body.kbon .cin{margin-top:4px}
 .pf-detail b.dim{color:var(--dim);font-weight:400}
 .bagbar .gchip{border-color:var(--line);color:var(--ink)}
 .pf-detail .setchg{margin:4px 0;font-size:12px;font-weight:700}.pf-detail .setchg.dn{color:var(--bad)}.pf-detail .setchg.up{color:var(--good)}
+/* 设计 60：工坊每条线一行（在做什么、选什么、停的原因） */
+.wlist{display:flex;flex-direction:column;gap:4px;margin:0 0 6px}
+.wrow{display:flex;align-items:center;gap:6px;background:rgba(155,90,40,.12);border-radius:6px;padding:2px 6px;min-height:40px;font-size:12px}
+.wrow>b{flex:none;color:var(--ink2)}.wrow .wst{flex:1;min-width:0;display:flex;align-items:center;gap:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wrow .wst .icon{width:20px;height:20px}.wrow .wst .prog{width:44px;height:6px;background:rgba(0,0,0,.15)}
+.wrow .wst.idle{color:var(--bad);white-space:normal;line-height:1.25}.wrow .wst.full{color:var(--bad)}
+.wrow .wsel{flex:none;max-width:52%;white-space:normal;line-height:1.2;text-align:left;font-size:12px!important;min-height:36px!important}.wrow .wsel.on{outline:2px solid #e8a33a}
+.wrow.crit{animation:critfl .5s ease-in-out 3;box-shadow:0 0 0 2px #ffcc33}
+.wopts{display:flex;flex-wrap:wrap;gap:4px;padding:4px 6px 6px;background:rgba(232,163,58,.15);border-radius:6px}.wopts .btn{margin:0;font-size:12px!important}.wopts .icon{width:18px;height:18px}
+/* 设计 60：员工名字一律深色，品质用小色块 */
+.qdot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:middle;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.qsq{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--qc);margin-right:4px;vertical-align:middle;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.sname{color:#3a2a1a!important}
+.ico-hungry{display:inline-block;width:22px;height:22px;vertical-align:middle;margin-right:3px;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M20 3l7 11M24 2l5 12' stroke='%235a3a1a' stroke-width='2' stroke-linecap='round'/%3E%3Cellipse cx='16' cy='16' rx='11' ry='5' fill='%23fff'/%3E%3Ccircle cx='12' cy='14' r='4' fill='%23fff'/%3E%3Ccircle cx='17' cy='12.5' r='4.5' fill='%23fff'/%3E%3Ccircle cx='21' cy='14' r='3.5' fill='%23fff'/%3E%3Cpath d='M4 16h24c0 7-5 11-12 11S4 23 4 16z' fill='%23c0392b' stroke='%237a1f15' stroke-width='1.5'/%3E%3Cpath d='M8 19h16' stroke='%23f2c94c' stroke-width='1.6'/%3E%3C/svg%3E")}
+.hungry{background:rgba(255,248,230,.92);border:2px solid #c0392b;border-radius:50%;padding:3px;display:inline-flex;animation:hungryB 1.2s ease-in-out infinite}.hungry .ico-hungry{margin:0;width:26px;height:26px}
+@keyframes hungryB{50%{transform:translateY(-3px)}}
+.sgrp{margin:10px 0 4px;font-weight:bold;color:var(--ink2);border-bottom:1px solid rgba(0,0,0,.15)}
+.sduty{font-size:12px;color:#5a4028;margin-top:2px}
+.newtag{display:inline-block;background:#2f8f3a;color:#fff;font-size:11px;border-radius:4px;padding:0 5px;margin:0 8px 0 4px;vertical-align:middle}
+.freebox{background:#e3f4d8;border:2px solid #5aa040;border-radius:8px;padding:8px 10px;margin:8px 0}
+.crewl{display:flex;flex-direction:column;gap:4px;margin-top:6px}.crewl .cr{display:flex;align-items:center;gap:6px;font-size:12px}.crewl .cr>span{flex:1;min-width:0}.crewl .btn{margin:0;font-size:12px!important}
+.fab.viewfab{bottom:calc(122px + var(--sb));background:#e8c06a;color:#3a2a1a;border:2px solid #a8762e;font-size:15px;padding:10px 18px;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fab.viewfab.hi2{bottom:calc(180px + var(--sb))}
+/* 设计 61：副本里 BOSS 出画面时的红色箭头 */
+#fbHud .fbarrow{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;z-index:3}
+#fbHud .fbarrow i{position:absolute;left:-26px;top:-20px;width:52px;height:40px;background:#e8322a;clip-path:polygon(0 25%,55% 25%,55% 0,100% 50%,55% 100%,55% 75%,0 75%);filter:drop-shadow(0 0 4px rgba(0,0,0,.7));animation:fbArr .8s ease-in-out infinite}
+#fbHud .fbarrow.hidden{display:none}
+@keyframes fbArr{50%{transform:translateX(6px)}}
+.wcell .wstk{display:block;font-size:11px;color:#5a4028;white-space:nowrap}.wcell .wstk.full{color:#c0392b;font-weight:700}
+/* 设计 61：BOSS 框左边的屠夫头像（跟主角头像同样的木框，大一点） */
+.fbb .bav{position:absolute;left:0;top:-2px;width:58px;height:58px;border-radius:50%;border:3px solid #e8cf98;background:radial-gradient(circle at 50% 40%,#5a4a3a,#241a14);overflow:hidden;box-shadow:0 0 0 2px #6a4a2a,0 3px 8px rgba(0,0,0,.5)}
+.fbb .bav img{width:100%;height:100%;object-fit:cover;display:block}
+.fbb.rage .bav{animation:bavRage .7s ease-in-out infinite alternate}
+@keyframes bavRage{from{border-color:#ff3020;box-shadow:0 0 0 2px #8a1a10,0 0 14px 4px rgba(255,40,20,.85)}to{border-color:#7a1a10;box-shadow:0 0 0 2px #4a0a06,0 0 2px 0 rgba(255,40,20,.2)}}
+.fbb.dead .bav img{filter:grayscale(1) brightness(.75)}.fbb.dead .bav{border-color:#9a9a9a}
+/* 设计 62：员工指定 */
+.ico-pin{display:inline-block;width:12px;height:14px;vertical-align:-2px;margin:0 2px;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 16'%3E%3Ccircle cx='6' cy='5' r='4.2' fill='%23d8352a' stroke='%237a1a12' stroke-width='1'/%3E%3Ccircle cx='4.6' cy='3.6' r='1.2' fill='%23ffb0a0'/%3E%3Cpath d='M6 9v6.5' stroke='%23555' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E")}
+.pinsw{display:flex;align-items:center;gap:6px;margin:4px 0}.pinsw span{font-size:12px;color:var(--ink2)}.pinsw .btn{margin:0}
+.crewl .cr.chk{cursor:pointer;gap:8px}.crewl .cr.chk input{width:22px;height:22px;flex:none;accent-color:#c8701e}.crewl .cr.chk.off{opacity:.45}
+.wlines .crewbtn{font-size:12px!important;min-height:30px!important;padding:2px 8px!important}.wlines .crewbtn.warn{color:var(--bad)}.wlines .crewbtn.on{outline:2px solid #e8a33a}
+.crewopts{align-items:center;margin-bottom:6px}.crewopts>span{font-size:12px;color:var(--ink2)}.crewopts small{font-size:10px;color:#7a5a3a}
+/* 设计 63：套装说明每件一行，「2 件」「4 件」「5 件」左对齐，说明长了在右边那一栏里换行；穿够了的那行字深、没穿够的浅 */
+.pf-detail .setrows{display:flex;flex-direction:column;gap:4px;margin:2px 0 4px}
+.pf-detail .setrow{display:grid;grid-template-columns:38px 1fr;column-gap:6px;align-items:baseline;font-size:13px;line-height:1.35;color:var(--ink2)}
+.pf-detail .setrow span{white-space:nowrap}.pf-detail .setrow b{font-weight:600;white-space:normal}
+.pf-detail .setrow.on{color:var(--ink)}.pf-detail .setrow.on span{color:var(--good);font-weight:700}
