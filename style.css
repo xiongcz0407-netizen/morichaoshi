@@ -1214,3 +1214,4 @@ body.kbon .cin{margin-top:4px}
 /* 设计 76：头像上的红点（背包里有新装备）；角色页没开放的页签（灰着，下面一行小字） */
 .avw{position:relative;display:inline-flex;flex:none}.avw .avdot{position:absolute;right:-1px;top:-1px;width:10px;height:10px;border-radius:50%;background:#ff4b3a;box-shadow:0 0 0 2px rgba(30,26,22,.9);display:none;pointer-events:none}.avw .avdot.on{display:block}
 .pf-tab.dis{opacity:.5;filter:grayscale(1)}.pf-tab.dis small{display:block;font-size:10px;line-height:1.1;opacity:.85;font-weight:400}
+.dstep.sbtns{align-items:center}.dstep.sbtns .btn:not(.sm){flex:1;min-width:0}   /* 设计 77：星星兑换「全部」「兑换」一排 */
