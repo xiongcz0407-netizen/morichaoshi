@@ -1215,3 +1215,7 @@ body.kbon .cin{margin-top:4px}
 .avw{position:relative;display:inline-flex;flex:none}.avw .avdot{position:absolute;right:-1px;top:-1px;width:10px;height:10px;border-radius:50%;background:#ff4b3a;box-shadow:0 0 0 2px rgba(30,26,22,.9);display:none;pointer-events:none}.avw .avdot.on{display:block}
 .pf-tab.dis{opacity:.5;filter:grayscale(1)}.pf-tab.dis small{display:block;font-size:10px;line-height:1.1;opacity:.85;font-weight:400}
 .dstep.sbtns{align-items:center}.dstep.sbtns .btn:not(.sm){flex:1;min-width:0}   /* 设计 77：星星兑换「全部」「兑换」一排 */
+/* 设计 79：摇杆、副本的按键不让浏览器当成双指缩放（iPhone 两根手指时会把摇杆那根手指取消掉）；撤退、打完的按钮在最上层 */
+#joyzone,#fbHud button,.fbk{touch-action:none}
+#fbHud .fbq,#fbHud .fbend{z-index:5}#fbHud .fbkeys{z-index:2}
+#askBox .abox .btn.danger{background:#d0432c;color:#fff;border-color:#8a2416}   /* 设计 79：危险操作（撤退、清空、清掉）红色 */
