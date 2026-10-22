@@ -1201,3 +1201,4 @@ body.kbon .cin{margin-top:4px}
 .pf-detail .setrow{display:grid;grid-template-columns:38px 1fr;column-gap:6px;align-items:baseline;font-size:13px;line-height:1.35;color:var(--ink2)}
 .pf-detail .setrow span{white-space:nowrap}.pf-detail .setrow b{font-weight:600;white-space:normal}
 .pf-detail .setrow.on{color:var(--ink)}.pf-detail .setrow.on span{color:var(--good);font-weight:700}
+.ft.far{color:#f3e6d0;font-size:12px;font-weight:600;opacity:.7}   /* 设计 64：副本里出了射程还按着攻击 */
