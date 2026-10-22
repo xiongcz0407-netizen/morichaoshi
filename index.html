@@ -11,7 +11,7 @@
 <title>末世超市</title>
 <link rel="apple-touch-icon" href="img/icon.png?v=9ef06c12">
 <link rel="icon" type="image/png" sizes="512x512" href="img/icon512.png?v=d7693f5f">
-<link rel="stylesheet" href="style.css?v=591">
+<link rel="stylesheet" href="style.css?v=601">
 </head>
 <body>
 <div id="app">
@@ -20,7 +20,7 @@
   <div id="joyzone"></div>
   <div id="hud" class="hidden">
     <div class="hl">
-      <canvas id="hAvatar" class="avatar" width="72" height="72" data-open="hero"></canvas>
+      <span class="avw"><canvas id="hAvatar" class="avatar" width="72" height="72" data-open="hero"></canvas><em class="dot avdot" data-dot="gear"></em></span>
       <div class="chip coin"><i class="ico-coin"></i><b id="hCoins">0</b></div>
       <div class="chip star" data-act="openStars"><img class="staric" src="img/ui/icons/star_gold.png?v=b7cbbb65" alt=""><b id="hStars">0</b></div>
       <div class="chip"><span class="k">口碑</span><b id="hRep">0</b><span class="bar"><i id="hRepBar"></i></span></div>
@@ -40,9 +40,9 @@
         <button class="dt" data-open="build"><i class="hi" style="--ic:url(img/ui/icons/wrench.png?v=ed4e066a)"></i>建造<em class="dot" data-dot="build"></em></button>
         <button class="dt" data-open="shelf"><i class="hi" style="--ic:url(img/ui/icons/menuGrid.png?v=3d8963a9)"></i>货架<em class="dot" data-dot="shelf"></em></button>
         <button class="dt" data-open="staff"><i class="hi" style="--ic:url(img/ui/icons/singleplayer.png?v=cbea1f70)"></i>员工<em class="dot" data-dot="staff"></em></button>
-        <button class="dt ws hidden" data-open="ws"><i class="hi" style="--ic:url(img/icons/bd_kitchen.png?v=550a8622)"></i>工坊</button>
+        <button class="dt ws hidden" data-open="ws"><i class="hi" style="--ic:url(img/ui/icons/factory.png?v=b2e1c72f)"></i>工坊</button>
         <button class="dt td" data-open="td"><i class="hi" style="--ic:url(img/ui/icons/warning.png?v=6fd24cb9)"></i>尸潮<em class="dot" data-dot="td"></em></button>
-        <button class="dt fbgear hidden" data-open="gear"><i class="hi" style="--ic:url(img/fb/eq_e_w1.png?v=4219d52d)"></i>装备</button>
+        <button class="dt fbgear hidden" data-act="openGear"><i class="hi" style="--ic:url(img/ui/icons/shield.png?v=63ceb051)"></i>装备</button>
         <button class="dt" data-open="menu"><i class="hi" style="--ic:url(img/ui/icons/gear.png?v=de124c31)"></i>设置<em class="dot" data-dot="menu"></em></button>
       </div>
     </div>
@@ -73,6 +73,6 @@
   <div id="scavLoad" class="hidden"><div class="sw"><h2 id="scavTxt">正在开往拾荒区…</h2><div class="sbar"><i id="scavBarI"></i></div><p id="scavTip"></p></div></div>
   <div id="rotate"><div><b>请把手机横过来</b><small>末世超市是横屏游戏</small></div></div>
 </div>
-<script src="game.js?v=591"></script>
+<script src="game.js?v=601"></script>
 </body>
 </html>

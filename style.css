@@ -513,6 +513,7 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .hero .hview{flex:0 0 220px;text-align:center}
 .hero #heroView{width:220px;height:260px;border-radius:14px;background:radial-gradient(circle at 50% 40%,rgba(255,220,160,.18),rgba(0,0,0,.25));overflow:hidden}
 .hero .heroCv{width:220px;height:260px;display:block}
+.heroCv{width:100%!important;height:100%!important;display:block}   /* 设计 76：画布跟着框的大小，heroView 按框的实际宽高画、相机比例跟着变 */
 .hero{align-items:stretch}
 /* 设计 28：升级格子 3 列 × 2 行，一屏放下 */
 .hero .hright{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;position:relative}
@@ -1209,3 +1210,7 @@ body.kbon .cin{margin-top:4px}
 
 /* 设计 75：开局资源没下好时的两个按钮 */
 #lbtns{display:flex;gap:12px;justify-content:center;margin-top:14px}#lbtns.hidden{display:none}#lbtns .btn{min-width:110px}
+
+/* 设计 76：头像上的红点（背包里有新装备）；角色页没开放的页签（灰着，下面一行小字） */
+.avw{position:relative;display:inline-flex;flex:none}.avw .avdot{position:absolute;right:-1px;top:-1px;width:10px;height:10px;border-radius:50%;background:#ff4b3a;box-shadow:0 0 0 2px rgba(30,26,22,.9);display:none;pointer-events:none}.avw .avdot.on{display:block}
+.pf-tab.dis{opacity:.5;filter:grayscale(1)}.pf-tab.dis small{display:block;font-size:10px;line-height:1.1;opacity:.85;font-weight:400}
