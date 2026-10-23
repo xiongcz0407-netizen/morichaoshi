@@ -527,6 +527,7 @@ body.tdon #app::after{content:'';position:absolute;inset:0;pointer-events:none;z
 .hcell .hval em{color:var(--good);font-style:normal;font-weight:700;margin-left:2px}
 .hcell .hup{padding:4px 8px;font-size:12px;margin-top:3px;white-space:nowrap}
 .hcell .hup .lack{color:var(--bad);font-weight:800}
+.hup{display:inline-flex;align-items:center;justify-content:center;gap:4px}.hup .cic{margin:0;font-size:inherit;color:inherit;gap:2px}.hup .cic .ico-coin{width:1.1em;height:1.1em}.hup .cic .icon{width:1.3em;height:1.3em}.hup .cic.lack{color:var(--bad)}   /* 设计 85 */
 .hcell .hup.no{filter:none;opacity:1;background:#e9dcc0;border-color:#c9b48c;box-shadow:none}.hcell .hup.no span{color:#8f7a5a}.hcell .hup.no span.lack{color:var(--bad)}
 .hcell .hfoot{font-size:12px;margin-top:5px;padding:3px 6px;border-radius:6px;white-space:nowrap}
 .hcell .hfoot.max{color:var(--good);font-weight:700}
@@ -1063,6 +1064,8 @@ body.kbon .cin{margin-top:4px}
 /* BOSS 框（上面中间） */
 .fbb{position:absolute;left:50%;top:calc(6px + var(--st));transform:translateX(-50%);width:calc(min(280px,31vw) + 70px);padding-left:70px;display:flex;flex-direction:column;gap:3px;align-items:stretch}
 .fbb .bnm{display:flex;justify-content:center;gap:8px;align-items:baseline;color:#ffd9c0;text-shadow:0 1px 3px #000}.fbb .bnm b{font-size:16px}.fbb .bnm small{font-size:11px;color:#d8b8a0}
+/* 设计 84c：BOSS 名字、第几关加一块深色底 + 描边：毒气、特效飘上来也看得清 */
+.fbb .bnm{align-self:center;padding:1px 12px;border-radius:10px;background:rgba(12,16,12,.62);text-shadow:0 0 2px #000,0 0 2px #000,0 1px 3px #000}
 .bbar{height:20px;border-color:#2a0806;box-shadow:0 0 0 2px #8a3a2a}
 .bbar .lag{background:#f0d090}.bbar .cur{background:linear-gradient(180deg,#e8483a,#9a1a12)}
 .bbar s{position:absolute;top:0;bottom:0;width:2px;background:rgba(0,0,0,.55)}
@@ -1241,3 +1244,57 @@ body.kbon .cin{margin-top:4px}
 .fbfoot .fbfl.need .icon{width:24px;height:24px}.fbfoot .fbfl.need.lack{color:#c0392b}
 .pf-detail .fbfoot .btn{min-width:96px}
 .fbfoot .fbfl.lk{text-align:center}
+
+/* 设计 85：星星兑换 667 宽：说明写一行、加减一排和按钮压矮，「全部」「兑换」整个露出来；844 不变 */
+.sline .ssh{display:none}
+@media (max-width:720px){
+  .sline .slg{display:none}.sline .ssh{display:inline}.pf-detail .sline{margin:1px 0;white-space:nowrap}
+  .pf-detail:has(.stx) .dsub{margin-top:1px}
+  .pf-detail:has(.stx) .dstep .btn{padding-top:1px;padding-bottom:1px;font-size:11px}
+  .pf-detail:has(.stx) .dstep.sbtns .btn{padding-top:3px;padding-bottom:3px}
+  .pf-detail:has(.stx) h5{margin-bottom:1px}
+}
+
+/* ================= 设计 85：套装图标 ================= */
+.eqic{--bs:15px}.eqic.big{--bs:20px}.eqic.sm{--bs:12px}.fbdit .eqic.sm{--bs:13px}   /* 设计 85b：掉落列表小图标的角标放大到 13px */
+.eqic img{position:relative;z-index:2}.eqic em{z-index:2}   /* 设计 85b 修：em 保持原来的 absolute（右下角），只加层级 */
+/* 左上角星星角标：一半在框外，金描边 + 绿星（不用黄，右下「N★」是黄的） */
+.eqic .sbg{position:absolute;z-index:4;width:var(--bs);height:var(--bs);left:calc(var(--bs) * -0.42);top:calc(var(--bs) * -0.42);pointer-events:none;
+  background:#fff6dc;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);filter:drop-shadow(0 0 1px #6a4a10) drop-shadow(0 1px 1px rgba(0,0,0,.7))}
+.eqic .sbg::after{content:'';position:absolute;inset:19%;background:radial-gradient(circle at 45% 40%,#7cf090,#14a53a 75%);
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+/* 边框流光：一圈只露出边框那么宽（遮罩挖空中间），里面一块比框大的锥形渐变在转（只转 transform，不跑 JS） */
+.eqic .sfl{position:absolute;z-index:3;inset:-2px;border-radius:inherit;padding:2px;overflow:hidden;pointer-events:none;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.eqic.big .sfl{inset:-3px;padding:3px}
+.eqic .sfl::before,.eqic .sfl::after{content:'';position:absolute;left:50%;top:50%;width:160%;height:160%;margin:-80% 0 0 -80%;
+  background:conic-gradient(from 0deg,transparent 0 70%,rgba(160,255,170,.0) 70%,rgba(190,255,200,.95) 82%,#f4fff0 86%,rgba(120,255,140,.0) 96%);animation:sflRot var(--sp,2.5s) linear infinite}
+.eqic .sfl::after{display:none;animation-direction:reverse}
+@keyframes sflRot{to{transform:rotate(360deg)}}
+.eqic.t0 .sfl{opacity:.55;--sp:3.2s}
+.eqic.t1 .sfl{opacity:.9;--sp:2.2s}.eqic.t1,.eqic.t2,.eqic.t3{box-shadow:0 0 7px rgba(79,209,107,.6),inset 0 0 10px rgba(79,209,107,.35)}
+.eqic.t2 .sfl{opacity:1;--sp:2s}.eqic.t2 .sfl::after,.eqic.t3 .sfl::after{display:block}
+.eqic.t3 .sfl{opacity:1;--sp:1.8s}.eqic.t3 .sfl::before,.eqic.t3 .sfl::after{background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,226,120,0) 70%,rgba(255,220,110,.95) 82%,#fff6c8 86%,rgba(140,255,150,.9) 90%,rgba(120,255,140,0) 97%)}
+.eqic.t3{border-color:#9fe36a;box-shadow:0 0 9px rgba(160,230,90,.75),inset 0 0 12px rgba(120,230,110,.4)}
+.eqic em.mx{color:#ffcf3a;text-shadow:0 0 4px #ff9b00,0 1px 2px #000;font-size:10px}.eqic.big em.mx{font-size:12px}
+/* 12★：图标后面一圈慢慢转的符文光环（压暗、露出框外一点；黑底 + 叠加） */
+.eqic .srn{position:absolute;z-index:1;inset:-24%;border-radius:50%;background-size:cover;mix-blend-mode:screen;opacity:.55;filter:brightness(.8);animation:sflRot 14s linear infinite;pointer-events:none}
+/* 8★ 以上：框外偶尔飘出几颗绿色小光点 */
+.eqic .sdt{position:absolute;z-index:3;inset:0;pointer-events:none}
+.eqic .sdt::before,.eqic .sdt::after{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#c8ffb0;box-shadow:0 0 5px 2px rgba(110,255,120,.8);opacity:0;animation:sdtUp 3.1s ease-out infinite}
+.eqic .sdt::before{left:-3px;top:60%}.eqic .sdt::after{right:-2px;top:25%;animation-delay:1.6s;animation-duration:3.7s}
+@keyframes sdtUp{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}70%{opacity:.6}100%{opacity:0;transform:translate(3px,-16px) scale(.5)}}
+/* 28 / 24 小图标：不跑整圈，只留淡淡的呼吸闪光（最多「变亮」那一档） */
+.eqic.sm .sfl,.eqic.sm .sdt,.eqic.sm .srn{display:none}
+.eqic.sm.q-s{animation:sBreath 2.6s ease-in-out infinite}
+@keyframes sBreath{0%,100%{box-shadow:0 0 3px rgba(79,209,107,.45)}50%{box-shadow:0 0 8px rgba(140,255,150,.9);border-color:#8ff0a0}}
+
+/* 设计 85b：主角页签左边的人物也垫一块深色圆角底（跟装备页一样），套装光效在浅色面板上看不清 */
+.pf-left #heroView{border-radius:12px;background:radial-gradient(ellipse at 50% 70%,#4a3e33,#221c18);overflow:hidden}
+/* 设计 85b：主角页签 2 × 2 格子压紧，两排正好放进格子区（不再用通用的「每格至少 112px」），第二排的升级按钮整个露出来 */
+.pf-grid:has(>.hcell){grid-auto-rows:minmax(0,1fr);height:100%}
+.pf-cell.hcell{min-height:0;padding:0 6px;gap:0;justify-content:center}
+.pf-cell.hcell .hname{font-size:12px;line-height:1.15}
+.pf-cell.hcell .hlv{font-size:15px;line-height:1.1}
+.pf-cell.hcell .hval{font-size:11px;line-height:1.2}
+#pbody .pf-cell.hcell .hup{margin-top:2px;padding-top:0;padding-bottom:0;min-height:38px}
