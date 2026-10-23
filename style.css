@@ -1107,7 +1107,7 @@ body.kbon .cin{margin-top:4px}
 .eqic em{position:absolute;right:1px;bottom:0;font-size:9px;font-style:normal;color:#ffe08a;font-weight:900;text-shadow:0 1px 2px #000}
 .eqic.big{width:72px;height:72px;border-width:3px}
 .eqic.none{border-style:dashed;border-color:#5a534a;background:#1f1b18}
-.eqic.q-n{border-color:#b9b9b9}.eqic.q-e{border-color:#b46cff;box-shadow:0 0 6px rgba(180,108,255,.5)}.eqic.q-s{border-color:#4fd16b;box-shadow:0 0 6px rgba(79,209,107,.5)}.eqic.q-l{border-color:#ff9b2f;box-shadow:0 0 8px rgba(255,155,47,.7)}
+.eqic.q-n{border-color:#b9b9b9}.eqic.q-e{border-color:#b46cff;box-shadow:0 0 6px rgba(180,108,255,.5)}.eqic.q-s{border-color:#ff4040;box-shadow:0 0 6px rgba(255,64,64,.5)}.eqic.q-l{border-color:#ff9b2f;box-shadow:0 0 8px rgba(255,155,47,.7)}
 .crysic{width:16px;height:16px;vertical-align:-3px;object-fit:contain}
 .bossic{width:40px;height:40px;border-radius:8px;object-fit:cover;background:#2a201c;vertical-align:middle}
 .bossic.q{display:inline-flex;align-items:center;justify-content:center;color:#8a7a6a;font-weight:900}
@@ -1140,7 +1140,7 @@ body.kbon .cin{margin-top:4px}
 .gotit{display:flex;gap:12px;align-items:flex-start;background:rgba(60,40,20,.08);border-radius:12px;padding:8px 10px;border:2px solid #b9a88f}
 .gotit>div{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.gotit>div>b,.gotit>div>small,.gotit>div>.note,.gotit>div>.good{grid-column:1/-1}
 .gotit small{color:#7a6650}.gotit .drow{padding:1px 0}.gotit .drow span{color:#5a4a3a}.gotit .drow.aff span{color:#6a40c8}.gotit .good{color:#2a8a3a;font-weight:700}
-.gotit.q-l{border-color:#ff9b2f;box-shadow:0 0 14px rgba(255,155,47,.35)}.gotit.q-s{border-color:#4fd16b}.gotit.q-e{border-color:#b46cff}
+.gotit.q-l{border-color:#ff9b2f;box-shadow:0 0 14px rgba(255,155,47,.35)}.gotit.q-s{border-color:#ff4040}.gotit.q-e{border-color:#b46cff}
 .gotres{display:flex;gap:16px;font-size:16px;font-weight:700;color:#6a4a10;align-items:center}
 .got .btns{display:flex;gap:10px}
 .got .drow{display:flex;justify-content:space-between;gap:8px}
@@ -1261,33 +1261,33 @@ body.kbon .cin{margin-top:4px}
 /* 左上角星星角标：一半在框外，金描边 + 绿星（不用黄，右下「N★」是黄的） */
 .eqic .sbg{position:absolute;z-index:4;width:var(--bs);height:var(--bs);left:calc(var(--bs) * -0.42);top:calc(var(--bs) * -0.42);pointer-events:none;
   background:#fff6dc;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);filter:drop-shadow(0 0 1px #6a4a10) drop-shadow(0 1px 1px rgba(0,0,0,.7))}
-.eqic .sbg::after{content:'';position:absolute;inset:19%;background:radial-gradient(circle at 45% 40%,#7cf090,#14a53a 75%);
+.eqic .sbg::after{content:'';position:absolute;inset:19%;background:radial-gradient(circle at 45% 40%,#ff8a80,#d42020 75%);
   clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 /* 边框流光：一圈只露出边框那么宽（遮罩挖空中间），里面一块比框大的锥形渐变在转（只转 transform，不跑 JS） */
 .eqic .sfl{position:absolute;z-index:3;inset:-2px;border-radius:inherit;padding:2px;overflow:hidden;pointer-events:none;
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
 .eqic.big .sfl{inset:-3px;padding:3px}
 .eqic .sfl::before,.eqic .sfl::after{content:'';position:absolute;left:50%;top:50%;width:160%;height:160%;margin:-80% 0 0 -80%;
-  background:conic-gradient(from 0deg,transparent 0 70%,rgba(160,255,170,.0) 70%,rgba(190,255,200,.95) 82%,#f4fff0 86%,rgba(120,255,140,.0) 96%);animation:sflRot var(--sp,2.5s) linear infinite}
+  background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,160,160,.0) 70%,rgba(255,190,190,.95) 82%,#fff2f0 86%,rgba(255,120,120,.0) 96%);animation:sflRot var(--sp,2.5s) linear infinite}
 .eqic .sfl::after{display:none;animation-direction:reverse}
 @keyframes sflRot{to{transform:rotate(360deg)}}
 .eqic.t0 .sfl{opacity:.55;--sp:3.2s}
-.eqic.t1 .sfl{opacity:.9;--sp:2.2s}.eqic.t1,.eqic.t2,.eqic.t3{box-shadow:0 0 7px rgba(79,209,107,.6),inset 0 0 10px rgba(79,209,107,.35)}
+.eqic.t1 .sfl{opacity:.9;--sp:2.2s}.eqic.t1,.eqic.t2,.eqic.t3{box-shadow:0 0 7px rgba(255,64,64,.6),inset 0 0 10px rgba(255,64,64,.35)}
 .eqic.t2 .sfl{opacity:1;--sp:2s}.eqic.t2 .sfl::after,.eqic.t3 .sfl::after{display:block}
-.eqic.t3 .sfl{opacity:1;--sp:1.8s}.eqic.t3 .sfl::before,.eqic.t3 .sfl::after{background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,226,120,0) 70%,rgba(255,220,110,.95) 82%,#fff6c8 86%,rgba(140,255,150,.9) 90%,rgba(120,255,140,0) 97%)}
-.eqic.t3{border-color:#9fe36a;box-shadow:0 0 9px rgba(160,230,90,.75),inset 0 0 12px rgba(120,230,110,.4)}
+.eqic.t3 .sfl{opacity:1;--sp:1.8s}.eqic.t3 .sfl::before,.eqic.t3 .sfl::after{background:conic-gradient(from 0deg,transparent 0 70%,rgba(255,226,120,0) 70%,rgba(255,220,110,.95) 82%,#fff6c8 86%,rgba(255,120,110,.9) 90%,rgba(255,110,100,0) 97%)}
+.eqic.t3{border-color:#e62828;box-shadow:0 0 10px rgba(255,40,40,.8),inset 0 0 12px rgba(255,50,50,.4)}   /* 设计 86b：12★ 边框保持红色，金色只在流光上（不然像传说的橙框） */
 .eqic em.mx{color:#ffcf3a;text-shadow:0 0 4px #ff9b00,0 1px 2px #000;font-size:10px}.eqic.big em.mx{font-size:12px}
 /* 12★：图标后面一圈慢慢转的符文光环（压暗、露出框外一点；黑底 + 叠加） */
 .eqic .srn{position:absolute;z-index:1;inset:-24%;border-radius:50%;background-size:cover;mix-blend-mode:screen;opacity:.55;filter:brightness(.8);animation:sflRot 14s linear infinite;pointer-events:none}
 /* 8★ 以上：框外偶尔飘出几颗绿色小光点 */
 .eqic .sdt{position:absolute;z-index:3;inset:0;pointer-events:none}
-.eqic .sdt::before,.eqic .sdt::after{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#c8ffb0;box-shadow:0 0 5px 2px rgba(110,255,120,.8);opacity:0;animation:sdtUp 3.1s ease-out infinite}
+.eqic .sdt::before,.eqic .sdt::after{content:'';position:absolute;width:4px;height:4px;border-radius:50%;background:#ffc0b0;box-shadow:0 0 5px 2px rgba(255,90,80,.8);opacity:0;animation:sdtUp 3.1s ease-out infinite}
 .eqic .sdt::before{left:-3px;top:60%}.eqic .sdt::after{right:-2px;top:25%;animation-delay:1.6s;animation-duration:3.7s}
 @keyframes sdtUp{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}70%{opacity:.6}100%{opacity:0;transform:translate(3px,-16px) scale(.5)}}
 /* 28 / 24 小图标：不跑整圈，只留淡淡的呼吸闪光（最多「变亮」那一档） */
 .eqic.sm .sfl,.eqic.sm .sdt,.eqic.sm .srn{display:none}
 .eqic.sm.q-s{animation:sBreath 2.6s ease-in-out infinite}
-@keyframes sBreath{0%,100%{box-shadow:0 0 3px rgba(79,209,107,.45)}50%{box-shadow:0 0 8px rgba(140,255,150,.9);border-color:#8ff0a0}}
+@keyframes sBreath{0%,100%{box-shadow:0 0 3px rgba(255,64,64,.45)}50%{box-shadow:0 0 8px rgba(255,140,130,.9);border-color:#ff9a90}}
 
 /* 设计 85b：主角页签左边的人物也垫一块深色圆角底（跟装备页一样），套装光效在浅色面板上看不清 */
 .pf-left #heroView{border-radius:12px;background:radial-gradient(ellipse at 50% 70%,#4a3e33,#221c18);overflow:hidden}
