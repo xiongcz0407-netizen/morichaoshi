@@ -1299,3 +1299,21 @@ body.kbon .cin{margin-top:4px}
 .pf-cell.hcell .hval{font-size:11px;line-height:1.2}
 #pbody .pf-cell.hcell .hup{margin-top:2px;padding-top:0;padding-bottom:0;min-height:38px}
 .tdcell .tdn{white-space:nowrap}   /* 设计 87：667 宽「第 10 关」不折行 */
+
+/* 设计 88：炼宝页右边：顶上（图标、星星）不动，属性一块上下滚，底下固定炼宝栏 */
+.rfw .rftop{flex:none;padding:2px 8px 0}
+.rfw .refstars{margin:0 0 2px}
+.rffoot .fbfl{display:flex;flex-direction:column;gap:1px}.rffoot .fbfl b{font-size:12px}.rffoot .fbfl .lack{color:#c0392b}.rffoot .fbfl .crysic{width:14px;height:14px;vertical-align:-2px}
+.rffoot .fbfl.lk{justify-content:center;font-size:14px}
+.rfhd{display:flex;align-items:center;gap:10px;justify-content:center}.rfhd>div{display:flex;flex-direction:column;min-width:0}.rfhd b{font-size:15px}.rfhd small{font-size:12px;color:var(--ink2)}
+.rfhd .eqic.big{width:56px;height:56px;--bs:16px}
+.rfw .fbds .dsub{margin-top:0}
+@media (max-width:720px){ .rfhd .eqic.big{width:46px;height:46px;--bs:14px} .rfhd b{font-size:14px} .rfw .refstars{font-size:13px} }
+.rfw .fbds{gap:0;padding-top:2px;padding-bottom:2px}.rfw .fbds .drow{line-height:1.25;min-height:0;padding:0;margin:0;font-size:12.5px}.rfw .fbds .dsub{font-size:11px;line-height:1.2}.rfw .fbds .note{margin:2px 0 0;font-size:11px}
+.rfw .rftop{padding-top:0}.rfhd .eqic.big{width:50px;height:50px}.rffoot{padding-top:3px;padding-bottom:3px}
+/* 设计 88b：炼宝页属性：行距加大；属性名固定宽度（按「对 BOSS 伤害」），数值从同一条竖线开始；下一星绿色 */
+#pbody .rfw .fbds .drow{display:grid!important;grid-template-columns:6.4em 1fr;column-gap:8px;align-items:baseline;line-height:1.45;margin:0 0 2px;flex-wrap:nowrap!important;white-space:nowrap!important}
+.rfw .fbds .drow>span{min-width:0;white-space:nowrap}
+.rfw .fbds .drow b{font-weight:700;color:var(--ink)}.rfw .fbds .drow .good{color:#2f9e2f;font-weight:800}
+.rfw .fbds>*{flex-shrink:0}   /* 设计 88b：属性区是 flex 一列，行会被压扁（行距看着贴在一起）；不压，多了就滚 */
+@media (max-width:720px){ #pbody .rfw .fbds .drow{line-height:1.35;margin-bottom:1px} .rfhd .eqic.big{width:42px;height:42px} .rfw .refstars{margin:0} }   /* 设计 88b：667 宽 4 行属性不用滚 */
